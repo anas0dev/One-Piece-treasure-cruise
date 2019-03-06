@@ -140,6 +140,7 @@ public class GameEngine {
         else {
             currentRoom = nextRoom;
             gui.println(currentRoom.getLongDescription());
+            gui.println("Vous remarquez un objet à terre, oh c'est un " + currentRoom.getTresor().getDescription());
             if(currentRoom.getImageName() != null)
                 gui.showImage(currentRoom.getImageName());
         }

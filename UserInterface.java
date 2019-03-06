@@ -22,7 +22,7 @@ public class UserInterface implements ActionListener
     private JButton ButtonE;    
     private JButton ButtonQ;
     private JButton ButtonH;
-    private JButton SBeamer;
+    private JButton eat;
     private JButton RBeamer;
     private JButton ButtonR;
     private JButton ButtonA;
@@ -115,7 +115,7 @@ public class UserInterface implements ActionListener
         ButtonA = new JButton("south west");
         ButtonT = new JButton("north east");
         ButtonU = new JButton("south east");
-        SBeamer = new JButton("SBeamer");
+        eat = new JButton("eat");
         RBeamer = new JButton("Quit");
         
         panel.setLayout(new BorderLayout());
@@ -152,8 +152,8 @@ public class UserInterface implements ActionListener
         
         panel2.setLayout(new BorderLayout(20,50));
       ///  panel2.add(Horloge, BorderLayout.WEST);
-        panel2.add(SBeamer, BorderLayout.EAST);
-        SBeamer.addActionListener(this);
+        panel2.add(eat, BorderLayout.EAST);
+        eat.addActionListener(this);
         panel2.add(RBeamer, BorderLayout.SOUTH);
         RBeamer.addActionListener(this);
         panel2.add(panel1, BorderLayout.CENTER);
@@ -186,7 +186,7 @@ public class UserInterface implements ActionListener
         else if(e.getActionCommand().equals("north west"))engine.interpretCommand("go northwest");
         else if(e.getActionCommand().equals("south east"))engine.interpretCommand("go southeast");
         else if(e.getActionCommand().equals("south west"))engine.interpretCommand("go southwest");
-        else if(e.getActionCommand().equals("SBeamer"))engine.interpretCommand("SBeamer");
+        else if(e.getActionCommand().equals("eat"))engine.interpretCommand("eat");
         else if(e.getActionCommand().equals("Quit"))engine.interpretCommand("quit");
         else
         processCommand();
