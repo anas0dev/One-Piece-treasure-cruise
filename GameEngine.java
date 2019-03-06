@@ -53,17 +53,17 @@ public class GameEngine {
       
         // create the rooms
         Room kokoyashi = new Room("Kokoyashi", "kokoyashi.png", "or", 1000);
-        Room nooberland = new Room("Nooberland", "loguetown.png", "or", 1000);
-        Room wano_kuni = new Room("Wano_kuni", "Wano_kuni", "or", 1000);
-        Room water7 = new Room("Water7", "Water7", "or", 1000);
-        Room kalen = new Room("Kalen", "Kalen", "or", 1000);
-        Room ortopia = new Room("Ortopia", "Ortopia", "or", 1000);
-        Room alabasta = new Room("Alabasta", "Alabasta", "or", 1000);
-        Room krakenland = new Room("Krakenland", "Krakenland", "or", 1000);
-        Room amazone_lily = new Room("Amazone_lily", "amazone_Lily.png", "or", 1000);
-        Room skypia = new Room("Skypia", "Skypia", "or", 1000);
-        Room paris8 = new Room("Paris8, il semble que vous avez découvert une île absente sur votre carte, et si vous l'exploriez ?", "Paris8", "or", 1000);
-        Room rafel = new Room("Rafel, ~votre log pose n'arrête pas de s'agiter ...~", "Rafel", "roi des pirate", 9999999);
+        Room nooberland = new Room("Nooberland", "Nooberland.png", "or", 1000);
+        Room wano_kuni = new Room("Wano_kuni", "wanokuni.png", "or", 1000);
+        Room water7 = new Room("Water7", "Water_Seven.png", "or", 1000);
+        Room kalen = new Room("Kalen", "kalen.png", "or", 1000);
+        Room ortopia = new Room("Ortopia", "Ortopia.png", "or", 1000);
+        Room alabasta = new Room("Alabasta", "Alabasta.png", "or", 1000);
+        Room krakenland = new Room("Krakenland", "Krakenland.png", "or", 1000);
+        Room amazone_lily = new Room("Amazone_lily", "AmazoneLily.png", "or", 1000);
+        Room skypia = new Room("Skypia", "skypia.png", "or", 1000);
+        Room paris8 = new Room("Paris8, il semble que vous avez découvert une île absente sur votre carte, et si vous l'exploriez ?", "Paris8.png", "or", 1000);
+        Room rafel = new Room("Raftel, ~votre log pose n'arrête pas de s'agiter ...~", "raftel.png", "roi des pirate", 9999999);
         
         // initialise room exits
         kokoyashi.setExits(nooberland, null, null, null, null, null, null, null);
