@@ -23,7 +23,11 @@ public class UserInterface implements ActionListener
     private JButton ButtonQ;
     private JButton ButtonH;
     private JButton SBeamer;
-    private JButton RBeamer;	
+    private JButton RBeamer;
+    private JButton ButtonR;
+    private JButton ButtonA;
+    private JButton ButtonT;
+    private JButton ButtonU;
 
     /**
      * Construct a UserInterface. As a parameter, a Game Engine
@@ -97,32 +101,56 @@ public class UserInterface implements ActionListener
 
         JPanel panel = new JPanel();
         JPanel panel1 = new JPanel();
-        JPanel panel2 = new JPanel(); 
+        JPanel panel2 = new JPanel();
+        JPanel panel3 = new JPanel();
+        JPanel panel4 = new JPanel();
+        JPanel panel5 = new JPanel();
         image = new JLabel();
         
-        ButtonL = new JButton("look");
-        ButtonQ = new JButton("quit");
-        ButtonH = new JButton("help");
-        ButtonE = new JButton("eat");
+        ButtonL = new JButton("north");
+        ButtonQ = new JButton("east");
+        ButtonH = new JButton("south");
+        ButtonE = new JButton("west");
+        ButtonR = new JButton("north west");
+        ButtonA = new JButton("south west");
+        ButtonT = new JButton("north east");
+        ButtonU = new JButton("south east");
         SBeamer = new JButton("SBeamer");
-        RBeamer = new JButton("RBeamer");
+        RBeamer = new JButton("Quit");
         
         panel.setLayout(new BorderLayout());
         panel.add(image, BorderLayout.NORTH);
         panel.add(listScroller, BorderLayout.CENTER);
         panel.add(entryField, BorderLayout.SOUTH);
         
+        panel4.setLayout(new BorderLayout());
+        panel4.add(ButtonT, BorderLayout.EAST);
+        ButtonT.addActionListener(this);
+        panel4.add(ButtonR, BorderLayout.WEST);
+        ButtonR.addActionListener(this);
+        
+        panel5.setLayout(new BorderLayout());
+        panel5.add(ButtonU, BorderLayout.EAST);
+        ButtonU.addActionListener(this);
+        panel5.add(ButtonA, BorderLayout.WEST);
+        ButtonA.addActionListener(this);
+        
+        panel3.setLayout(new BorderLayout());
+        panel3.add(panel4, BorderLayout.NORTH);
+        panel3.add(panel5, BorderLayout.SOUTH);
+        
         panel1.setLayout(new BorderLayout());
         panel1.add(ButtonL, BorderLayout.NORTH);
         ButtonL.addActionListener(this);
-        panel1.add(ButtonQ, BorderLayout.CENTER);
+        panel1.add(panel3, BorderLayout.CENTER);
+        panel1.add(ButtonQ, BorderLayout.WEST);
         ButtonQ.addActionListener(this);
         panel1.add(ButtonH, BorderLayout.SOUTH);
         ButtonH.addActionListener(this);
         panel1.add(ButtonE, BorderLayout.EAST);
         ButtonE.addActionListener(this);
         
-        panel2.setLayout(new BorderLayout(20,20));
+        panel2.setLayout(new BorderLayout(20,50));
       ///  panel2.add(Horloge, BorderLayout.WEST);
         panel2.add(SBeamer, BorderLayout.EAST);
         SBeamer.addActionListener(this);
@@ -150,12 +178,16 @@ public class UserInterface implements ActionListener
      */
     public void actionPerformed(ActionEvent e) 
     {
-    	if(e.getActionCommand().equals("eat"))engine.interpretCommand("eat");
-        else if(e.getActionCommand().equals("help"))engine.interpretCommand("help");
-        else if(e.getActionCommand().equals("quit"))engine.interpretCommand("quit");
-        else if(e.getActionCommand().equals("look"))engine.interpretCommand("look");
+    	if(e.getActionCommand().equals("west"))engine.interpretCommand("go west");
+        else if(e.getActionCommand().equals("south"))engine.interpretCommand("go south");
+        else if(e.getActionCommand().equals("east"))engine.interpretCommand("go east");
+        else if(e.getActionCommand().equals("north"))engine.interpretCommand("go north");
+        else if(e.getActionCommand().equals("north east"))engine.interpretCommand("go northeast");
+        else if(e.getActionCommand().equals("north west"))engine.interpretCommand("go northwest");
+        else if(e.getActionCommand().equals("south east"))engine.interpretCommand("go southeast");
+        else if(e.getActionCommand().equals("south west"))engine.interpretCommand("go southwest");
         else if(e.getActionCommand().equals("SBeamer"))engine.interpretCommand("SBeamer");
-        else if(e.getActionCommand().equals("RBeamer"))engine.interpretCommand("RBeamer");
+        else if(e.getActionCommand().equals("Quit"))engine.interpretCommand("quit");
         else
         processCommand();
     }
