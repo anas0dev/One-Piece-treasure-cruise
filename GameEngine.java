@@ -1,3 +1,5 @@
+//import java.util.Stack;
+
 /**
  *  This class is part of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.
@@ -14,6 +16,7 @@ public class GameEngine {
 	private Parser parser;
     private Room currentRoom;
     private UserInterface gui;
+    //private Stack<String> deplacement;
 
     /**
      * Constructor for objects of class GameEngine
@@ -43,8 +46,8 @@ public class GameEngine {
         gui.println("Les iles connues à ce jour sont les suivantes : \n"+
         		"Alabasta, Amazone Lily, Kokoyashi, Kalen, Krakenland \nNooberland, Ortopia, Raftel, Skypia, Water7, Wano-Kuni \n");
         gui.println("Tapez 'help' si vous avez besoin d'aide.");
-        gui.print("Bienvenue à " + currentRoom.getExitString()+"\n");
-        gui.showImage(currentRoom.getImageName());
+        gui.print("Bienvenue à " + this.currentRoom.getExitString()+"\n");
+        gui.showImage(this.currentRoom.getImageName());
     }
 
     private void createRooms()
@@ -94,7 +97,7 @@ public class GameEngine {
         paris8.setExits(null, null, skypia, null, null, null, null, null);
         raftel.setExits(null, null, null, null, null, null, skypia, null);
 
-        currentRoom = kokoyashi;  // start game outside
+        this.currentRoom = kokoyashi;  // start game outside
     }
     /**
      * Given a command, process (that is: execute) the command.
@@ -148,17 +151,18 @@ public class GameEngine {
         String direction = command.getSecondWord();
 
         // Try to leave current room.
-        Room nextRoom = currentRoom.getExit(direction);
+        Room nextRoom = this.currentRoom.getExit(direction);
 
         if (nextRoom == null)
             gui.println("There is no door!");
         else {
-            currentRoom = nextRoom;
-            gui.println(currentRoom.getLongDescription());
+        	//this.deplacement.add(new String(direction));
+            this.currentRoom = nextRoom;
+            gui.println(this.currentRoom.getLongDescription());
             gui.println("Vous remarquez des objet � terre, oh il y a :");
-            gui.println(currentRoom.printTresor());
-            if(currentRoom.getImageName() != null)
-                gui.showImage(currentRoom.getImageName());
+            gui.println(this.currentRoom.printTresor());
+            if(this.currentRoom.getImageName() != null)
+                gui.showImage(this.currentRoom.getImageName());
         }
     }
     /**
@@ -166,7 +170,7 @@ public class GameEngine {
      */
     private void look()
     {
-    	gui.println("Vous êtes actuellement à " + currentRoom.getLongDescription());
+    	gui.println("Vous êtes actuellement à " + this.currentRoom.getLongDescription());
     }
     
     /**
