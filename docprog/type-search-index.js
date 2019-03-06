@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"<Unnamed>","l":"Command"},{"p":"<Unnamed>","l":"CommandWords"},{"p":"<Unnamed>","l":"Game"},{"p":"<Unnamed>","l":"GameEngine"},{"p":"<Unnamed>","l":"Item"},{"p":"<Unnamed>","l":"Parser"},{"p":"<Unnamed>","l":"Room"},{"p":"<Unnamed>","l":"UserInterface"}]

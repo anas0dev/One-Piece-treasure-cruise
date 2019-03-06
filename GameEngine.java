@@ -159,7 +159,7 @@ public class GameEngine {
         	//this.deplacement.add(new String(direction));
             this.currentRoom = nextRoom;
             gui.println(this.currentRoom.getLongDescription());
-            gui.println("Vous remarquez des objet à terre, oh il y a :");
+            gui.println("Vous remarquez des objet a terre, oh il y a :");
             gui.println(this.currentRoom.printTresor());
             if(this.currentRoom.getImageName() != null)
                 gui.showImage(this.currentRoom.getImageName());
