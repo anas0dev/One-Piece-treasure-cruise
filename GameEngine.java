@@ -52,18 +52,33 @@ public class GameEngine {
 
       
         // create the rooms
-        Room kokoyashi = new Room("Kokoyashi", "kokoyashi.png", "or", 1000);
-        Room nooberland = new Room("Nooberland", "Nooberland.png", "or", 1000);
-        Room wano_kuni = new Room("Wano_kuni", "wanokuni.png", "or", 1000);
-        Room water7 = new Room("Water7", "Water_Seven.png", "or", 1000);
-        Room kalen = new Room("Kalen", "kalen.png", "or", 1000);
-        Room ortopia = new Room("Ortopia", "Ortopia.png", "or", 1000);
-        Room alabasta = new Room("Alabasta", "Alabasta.png", "or", 1000);
-        Room krakenland = new Room("Krakenland", "Krakenland.png", "or", 1000);
-        Room amazone_lily = new Room("Amazone_lily", "AmazoneLily.png", "or", 1000);
-        Room skypia = new Room("Skypia", "skypia.png", "or", 1000);
-        Room paris8 = new Room("Paris8, il semble que vous avez découvert une île absente sur votre carte, et si vous l'exploriez ?", "Paris8.png", "or", 1000);
-        Room rafel = new Room("Raftel, ~votre log pose n'arrête pas de s'agiter ...~", "raftel.png", "roi des pirate", 9999999);
+        Room kokoyashi = new Room("Kokoyashi", "kokoyashi.png");
+        
+        Room nooberland = new Room("Nooberland", "Nooberland.png");
+        nooberland.addTresor(new Item("carte de grand line", 1000));
+        nooberland.addTresor(new Item("viande", 20));
+        nooberland.addTresor(new Item("or", 100));
+        Room wano_kuni = new Room("Wano_kuni", "wanokuni.png");
+        wano_kuni.addTresor(new Item("Ponigriphe", 0));
+        Room water7 = new Room("Water7", "Water_Seven.png");
+        water7.addTresor(new Item("viande", 40));
+        Room kalen = new Room("Kalen", "kalen.png");
+        kalen.addTresor(new Item("coffre au tresor", 2000));
+        Room ortopia = new Room("Ortopia", "Ortopia.png");
+        ortopia.addTresor(new Item("or", 50));
+        Room alabasta = new Room("Alabasta", "Alabasta.png");
+        alabasta.addTresor(new Item("Ponigriphe", 0));
+        Room krakenland = new Room("Krakenland", "Krakenland.png");
+        krakenland.addTresor(new Item("viande", 10));
+        Room amazone_lily = new Room("Amazone_lily", "AmazoneLily.png");
+        amazone_lily.addTresor(new Item("carte de vie", 2));
+        Room skypia = new Room("Skypia", "skypia.png");
+        skypia.addTresor(new Item("Ponigriphe", 0));
+        skypia.addTresor(new Item("coffre au tresor", 2000));
+        Room paris8 = new Room("Paris8, il semble que vous avez découvert une île absente sur votre carte, et si vous l'exploriez ?", "Paris8.png");
+        paris8.addTresor(new Item("l'histoire oblier", 2));
+        Room raftel = new Room("Raftel, ~votre log pose n'arrête pas de s'agiter ...~", "raftel.png");
+        raftel.addTresor(new Item("one piece", 0));
         
         // initialise room exits
         kokoyashi.setExits(nooberland, null, null, null, null, null, null, null);
@@ -75,9 +90,9 @@ public class GameEngine {
         alabasta.setExits(null, null, null, null, null, null, nooberland, null);
         krakenland.setExits(null, null, ortopia, skypia, null, null, null, null);
         amazone_lily.setExits(null, null, null, null, null, null, ortopia, null);
-        skypia.setExits(paris8, krakenland, kalen, null, null, rafel, null, null);
+        skypia.setExits(paris8, krakenland, kalen, null, null, raftel, null, null);
         paris8.setExits(null, null, skypia, null, null, null, null, null);
-        rafel.setExits(null, null, null, null, null, null, skypia, null);
+        raftel.setExits(null, null, null, null, null, null, skypia, null);
 
         currentRoom = kokoyashi;  // start game outside
     }
@@ -140,7 +155,8 @@ public class GameEngine {
         else {
             currentRoom = nextRoom;
             gui.println(currentRoom.getLongDescription());
-            gui.println("Vous remarquez un objet � terre, oh c'est un " + currentRoom.getTresor().getDescription());
+            gui.println("Vous remarquez des objet � terre, oh il y a :");
+            gui.println(currentRoom.printTresor());
             if(currentRoom.getImageName() != null)
                 gui.showImage(currentRoom.getImageName());
         }

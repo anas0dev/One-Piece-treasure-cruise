@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -19,23 +20,23 @@ class Room
 	private String description;
 	private HashMap<String, Room> exits;
 	private String imageName;
-	private Item tresor;
-/**
-* Create a room described "description". Initially, it
-* has no exits. "description" is something like "a
-* kitchen" or "an open court yard".
-*/
-	public Room(String description, String imageName, String descriptionItem, int valeurItem)
+	private ArrayList<Item> tresors;
+	/**
+	* Create a room described "description". Initially, it
+	* has no exits. "description" is something like "a
+	* kitchen" or "an open court yard".
+	*/
+	public Room(String description, String imageName)
 	{
 		this.description = description;
 		exits = new HashMap<String, Room>();
 		this.imageName = imageName;
-		this.setTresor(new Item(descriptionItem, valeurItem));
+		this.tresors = new ArrayList<Item>();
 	}
-/**
-* Define the exits of this room. Every direction either
-* leads to another room or is null (no exit there).
-*/
+	/**
+	* Define the exits of this room. Every direction either
+	* leads to another room or is null (no exit there).
+	*/
 	public void setExits(Room north, Room east, Room south,Room west, Room northWest, Room northEast, Room southWest, Room southEast)
 	{
 		if(north != null)
@@ -56,15 +57,15 @@ class Room
 			exits.put("southwest", southWest);
 	}
 	
-	 public void setExit(String direction, Room voisin)
-	    {
+	public void setExit(String direction, Room voisin)
+	{
 	        exits.put(direction, voisin);
-	    }
-/**
-* Return the room that is reached if we go from this
-* room in direction "direction". If there is no room in
-* that direction, return null.
-*/
+	}
+	/**
+	* Return the room that is reached if we go from this
+	* room in direction "direction". If there is no room in
+	* that direction, return null.
+	*/
 	public Room getExit(String direction)
 	{
 		return exits.get(direction);
@@ -77,14 +78,14 @@ class Room
             returnString.append( " " +  chaine);
         return description + ".\n" + returnString.toString();
     }
-	 public String getLongDescription()
-	 {
-	    return getExitString();
-	 }
-/**
-* Return the description of the room (the one that was
-* defined in the constructor).
-*/
+	public String getLongDescription()
+	{
+		return getExitString();
+	}
+	/**
+	* Return the description of the room (the one that was
+	* defined in the constructor).
+	*/
 	public String getDescription()
 	{
 		return description;
@@ -96,10 +97,23 @@ class Room
 	{
 		return imageName;
 	}
-	public Item getTresor() {
-		return tresor;
+	
+	public void addTresor(Item tresor) 
+	{
+		this.tresors.add(tresor);
 	}
-	public void setTresor(Item tresor) {
-		this.tresor = tresor;
+	
+	public void removeTresor(Item tresor)
+	{
+		this.tresors.remove(tresor);
+	}
+	
+	public String printTresor()
+	{
+		String result = "";
+		for(int i = 0; i < this.tresors.size(); i++) {
+			result += " " + i + "* " + this.tresors.get(i).getDescription() + "\n";
+		}
+		return result;
 	}
 }
