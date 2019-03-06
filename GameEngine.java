@@ -52,18 +52,18 @@ public class GameEngine {
 
       
         // create the rooms
-        Room kokoyashi = new Room("Kokoyashi", "kokoyashi.png");
-        Room nooberland = new Room("Nooberland", "nooberland.png");
-        Room wano_kuni = new Room("Wano_kuni", "Wano_kuni");
-        Room water7 = new Room("Water7", "Water7");
-        Room kalen = new Room("Kalen", "Kalen");
-        Room ortopia = new Room("Ortopia", "Ortopia");
-        Room alabasta = new Room("Alabasta", "Alabasta");
-        Room krakenland = new Room("Krakenland", "Krakenland");
-        Room amazone_lily = new Room("Amazone_lily", "Amazone_lily");
-        Room skypia = new Room("Skypia", "Skypia");
-        Room paris8 = new Room("Paris8, il semble que vous avez découvert une île absente sur votre carte, et si vous l'exploriez ?", "Paris8");
-        Room rafel = new Room("Rafel, ~votre log pose n'arrête pas de s'agiter ...~", "Rafel");
+        Room kokoyashi = new Room("Kokoyashi", "kokoyashi.png", "or", 1000);
+        Room nooberland = new Room("Nooberland", "loguetown.png", "or", 1000);
+        Room wano_kuni = new Room("Wano_kuni", "Wano_kuni", "or", 1000);
+        Room water7 = new Room("Water7", "Water7", "or", 1000);
+        Room kalen = new Room("Kalen", "Kalen", "or", 1000);
+        Room ortopia = new Room("Ortopia", "Ortopia", "or", 1000);
+        Room alabasta = new Room("Alabasta", "Alabasta", "or", 1000);
+        Room krakenland = new Room("Krakenland", "Krakenland", "or", 1000);
+        Room amazone_lily = new Room("Amazone_lily", "amazone_Lily.png", "or", 1000);
+        Room skypia = new Room("Skypia", "Skypia", "or", 1000);
+        Room paris8 = new Room("Paris8, il semble que vous avez découvert une île absente sur votre carte, et si vous l'exploriez ?", "Paris8", "or", 1000);
+        Room rafel = new Room("Rafel, ~votre log pose n'arrête pas de s'agiter ...~", "Rafel", "roi des pirate", 9999999);
         
         // initialise room exits
         kokoyashi.setExits(nooberland, null, null, null, null, null, null, null);

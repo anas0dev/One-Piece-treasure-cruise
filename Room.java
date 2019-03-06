@@ -19,16 +19,18 @@ class Room
 	private String description;
 	private HashMap<String, Room> exits;
 	private String imageName;
+	private Item tresor;
 /**
 * Create a room described "description". Initially, it
 * has no exits. "description" is something like "a
 * kitchen" or "an open court yard".
 */
-	public Room(String description, String imageName)
+	public Room(String description, String imageName, String descriptionItem, int valeurItem)
 	{
 		this.description = description;
 		exits = new HashMap<String, Room>();
 		this.imageName = imageName;
+		this.setTresor(new Item(descriptionItem, valeurItem));
 	}
 /**
 * Define the exits of this room. Every direction either
@@ -93,5 +95,11 @@ class Room
 	public String getImageName()
 	{
 		return imageName;
+	}
+	public Item getTresor() {
+		return tresor;
+	}
+	public void setTresor(Item tresor) {
+		this.tresor = tresor;
 	}
 }

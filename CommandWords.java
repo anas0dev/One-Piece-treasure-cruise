@@ -29,13 +29,13 @@ public class CommandWords
      * @return true if a given string is a valid command,
      * false if it isn't.
      */
-    public void showAll()
+    /*public void showAll()
     {
     	for(String command : validCommands) {
     		System.out.print(command + " ");
-    }
-    		System.out.println();
-    }
+    	}
+    	System.out.println();
+    }*/
     
     public boolean isCommand(String aString)
     {
@@ -47,14 +47,14 @@ public class CommandWords
         return false;
     }
     
-    public String getCommandList() {
+  /*  public String getCommandList() {
         String commandList = "";
         for(int i = 0; i < validCommands.length; i++) {
             commandList += validCommands[i] + "  ";
         }
         return commandList;
-    }
-    public String getCommandList2()
+    }*/
+    public String getCommandList()
 	{
     	String commandList= "";
     	for(String command : validCommands) {

@@ -1,4 +1,4 @@
-import java.util.Scanner;
+//import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
@@ -20,7 +20,7 @@ import java.util.StringTokenizer;
 public class Parser 
 {
     private CommandWords commands;  // holds all valid command words
-    private Scanner reader;         // source of command input
+ //   private Scanner reader;         // source of command input
 
     /**
      * Create a parser to read from the terminal window.
@@ -28,7 +28,7 @@ public class Parser
     public Parser() 
     {
         commands = new CommandWords();
-        reader = new Scanner(System.in);
+ //       reader = new Scanner(System.in);
     }
     public String showCommands()
     {

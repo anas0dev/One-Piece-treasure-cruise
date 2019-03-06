@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
-import java.awt.image.*;
+//import java.awt.image.*;
 
 /**
  * This class implements a simple graphical user interface with a text entry
@@ -166,7 +166,7 @@ public class UserInterface implements ActionListener
      */
     private void processCommand()
     {
-        boolean finished = false;
+//        boolean finished = false;
         String input = entryField.getText();
         entryField.setText("");
 
