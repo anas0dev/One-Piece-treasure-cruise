@@ -28,6 +28,7 @@ public class UserInterface implements ActionListener
     private JButton ButtonA;
     private JButton ButtonT;
     private JButton ButtonU;
+    private JButton ButtonBack;
 
     /**
      * Construct a UserInterface. As a parameter, a Game Engine
@@ -90,7 +91,7 @@ public class UserInterface implements ActionListener
      */
     private void createGUI()
     {
-        myFrame = new JFrame("Zork");
+        myFrame = new JFrame("One Piece Treasure cruise");
         entryField = new JTextField(70);
 
         log = new JTextArea();
@@ -117,6 +118,7 @@ public class UserInterface implements ActionListener
         ButtonU = new JButton("south east");
         help = new JButton("help");
         RBeamer = new JButton("Quit");
+        ButtonBack = new JButton("Back");
         
         panel.setLayout(new BorderLayout());
         panel.add(image, BorderLayout.NORTH);

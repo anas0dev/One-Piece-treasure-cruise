@@ -1,4 +1,4 @@
-//import java.util.Stack;
+import java.util.Stack;
 
 /**
  *  This class is part of the "World of Zuul" application. 
@@ -16,14 +16,15 @@ public class GameEngine {
 	private Parser parser;
     private Room currentRoom;
     private UserInterface gui;
-    //private Stack<String> deplacement;
+    private Stack<Room> deplacement;
 
     /**
      * Constructor for objects of class GameEngine
      */
     public GameEngine()
     {
-        parser = new Parser();
+        this.parser = new Parser();
+        this.deplacement = new Stack<Room>(); 
         createRooms();
     }
 
@@ -159,6 +160,8 @@ public class GameEngine {
             look();
         else if (commandWord.equals("eat"))
             eat();
+        else if (commandWord.equals("back"))
+        	back();
         else if (commandWord.equals("quit")) {
             if(command.hasSecondWord())
                 gui.println("Quit what?");
@@ -192,7 +195,7 @@ public class GameEngine {
         if (nextRoom == null)
             gui.println("There is no door!");
         else {
-        	//this.deplacement.add(new String(direction));
+        	this.deplacement.push(this.currentRoom);
             this.currentRoom = nextRoom;
             gui.println(this.currentRoom.getLongDescription());
             gui.println("Vous remarquez des objet a terre, oh il y a :");
@@ -201,6 +204,22 @@ public class GameEngine {
                 gui.showImage(this.currentRoom.getImageName());
         }
     }
+    
+    private void back() 
+    {
+    	if(this.deplacement.isEmpty()) {
+    		gui.println("vous Ètes au dÈbut");
+    		return;
+    	}
+    	
+    	this.currentRoom = this.deplacement.pop();
+    	gui.println("on est revenu ‡ " + this.currentRoom.getDescription());
+        gui.println("Vous remarquez des objet a terre, oh il y a :");
+        gui.println(this.currentRoom.printTresor());
+        if(this.currentRoom.getImageName() != null)
+            gui.showImage(this.currentRoom.getImageName());
+    }
+    
     /**
      * Cette m√©thode permet de conna√Ætre sa position
      */
