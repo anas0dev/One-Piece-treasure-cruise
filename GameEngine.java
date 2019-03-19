@@ -84,18 +84,54 @@ public class GameEngine {
         raftel.addTresor(new Item("one piece", 0));
         
         // initialise room exits
-        kokoyashi.setExits(nooberland, null, null, null, null, null, null, null);
-        nooberland.setExits(null, water7, kokoyashi, wano_kuni, kalen, alabasta, null, null);
-        wano_kuni.setExits(null, nooberland, null, null, null, null, null, null);
-        water7.setExits(null, null, null, nooberland, null, null, null, null);
-        kalen.setExits(skypia, null, null, null, null, null, null, nooberland);
-        ortopia.setExits(krakenland, null, null, kalen, null, amazone_lily, null, null);
-        alabasta.setExits(null, null, null, null, null, null, nooberland, null);
-        krakenland.setExits(null, null, ortopia, skypia, null, null, null, null);
-        amazone_lily.setExits(null, null, null, null, null, null, ortopia, null);
-        skypia.setExits(paris8, krakenland, kalen, null, null, raftel, null, null);
-        paris8.setExits(null, null, skypia, null, null, null, null, null);
-        raftel.setExits(null, null, null, null, null, null, skypia, null);
+//        kokoyashi.setExits(nooberland, null, null, null, null, null, null, null);
+//        nooberland.setExits(null, water7, kokoyashi, wano_kuni, kalen, alabasta, null, null);
+//        wano_kuni.setExits(null, nooberland, null, null, null, null, null, null);
+//        water7.setExits(null, null, null, nooberland, null, null, null, null);
+//        kalen.setExits(skypia, null, null, null, null, null, null, nooberland);
+//        ortopia.setExits(krakenland, null, null, kalen, null, amazone_lily, null, null);
+//        alabasta.setExits(null, null, null, null, null, null, nooberland, null);
+//        krakenland.setExits(null, null, ortopia, skypia, null, null, null, null);
+//        amazone_lily.setExits(null, null, null, null, null, null, ortopia, null);
+//        skypia.setExits(paris8, krakenland, kalen, null, null, raftel, null, null);
+//        paris8.setExits(null, null, skypia, null, null, null, null, null);
+//        raftel.setExits(null, null, null, null, null, null, skypia, null);
+        
+        
+        kokoyashi.setExits("north", nooberland);
+
+        nooberland.setExits("east", water7);
+        nooberland.setExits("south", kokoyashi);
+        nooberland.setExits("west", wano_kuni);
+        nooberland.setExits("northWest", kalen);
+        nooberland.setExits("northEast", alabasta);
+
+        wano_kuni.setExits("east", nooberland);
+
+        water7.setExits("west", nooberland);
+
+        kalen.setExits("north", skypia);
+        kalen.setExits("southEast", nooberland);
+
+        ortopia.setExits("north", krakenland);
+        ortopia.setExits("west", kalen);
+        ortopia.setExits("northEast", amazone_lily);
+
+        alabasta.setExits("southWest", nooberland);
+        
+        krakenland.setExits("south", ortopia);
+        krakenland.setExits("west", skypia);
+
+        amazone_lily.setExits("southWest", ortopia);
+
+        skypia.setExits("north", paris8);
+        skypia.setExits("east", krakenland);
+        skypia.setExits("south", kalen);
+        skypia.setExits("northEast", raftel);
+
+        paris8.setExits("south", skypia);
+
+        raftel.setExits("southWest", skypia);
 
         this.currentRoom = kokoyashi;  // start game outside
     }

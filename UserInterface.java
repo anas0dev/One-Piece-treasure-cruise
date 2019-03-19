@@ -183,7 +183,7 @@ public class UserInterface implements ActionListener
         else if(e.getActionCommand().equals("east"))engine.interpretCommand("go east");
         else if(e.getActionCommand().equals("north"))engine.interpretCommand("go north");
         else if(e.getActionCommand().equals("north east"))engine.interpretCommand("go northeast");
-        else if(e.getActionCommand().equals("north west"))engine.interpretCommand("go northwest");
+        else if(e.getActionCommand().equals("north west"))engine.interpretCommand("go northWest");
         else if(e.getActionCommand().equals("south east"))engine.interpretCommand("go southeast");
         else if(e.getActionCommand().equals("south west"))engine.interpretCommand("go southwest");
         else if(e.getActionCommand().equals("help"))engine.interpretCommand("help");

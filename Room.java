@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Class Room - a room in an adventure game.
@@ -37,25 +38,31 @@ class Room
 	* Define the exits of this room. Every direction either
 	* leads to another room or is null (no exit there).
 	*/
-	public void setExits(Room north, Room east, Room south,Room west, Room northWest, Room northEast, Room southWest, Room southEast)
-	{
-		if(north != null)
-			exits.put("north", north);
-		if(east != null)
-			exits.put("east", east);
-		if(south != null)
-			exits.put("south", south);
-		if(west != null)
-			exits.put("west", west);
-		if(northEast != null)
-			exits.put("northeast", northEast);
-		if(northWest != null)
-			exits.put("northwest", northWest);
-		if(southEast != null)
-			exits.put("southeast", southEast);
-		if(southWest != null)
-			exits.put("southwest", southWest);
-	}
+//	public void setExits(Room north, Room east, Room south,Room west, Room northWest, Room northEast, Room southWest, Room southEast)
+//	{
+//		if(north != null)
+//			exits.put("north", north);
+//		if(east != null)
+//			exits.put("east", east);
+//		if(south != null)
+//			exits.put("south", south);
+//		if(west != null)
+//			exits.put("west", west);
+//		if(northEast != null)
+//			exits.put("northeast", northEast);
+//		if(northWest != null)
+//			exits.put("northwest", northWest);
+//		if(southEast != null)
+//			exits.put("southeast", southEast);
+//		if(southWest != null)
+//			exits.put("southwest", southWest);
+//	}
+	
+    public void setExits(String direction,Room neighbor)
+    {
+        exits.put(direction, neighbor);
+    }
+	
 	
 	public void setExit(String direction, Room voisin)
 	{
@@ -70,14 +77,26 @@ class Room
 	{
 		return exits.get(direction);
 	}
+//	
+//	public String getExitString()
+//    {
+//        StringBuilder returnString = new StringBuilder("Sorties:");
+//        for ( String chaine : exits.keySet() )
+//            returnString.append( " " +  chaine);
+//        return description + ".\n" + returnString.toString();
+//    }
 	
-	public String getExitString()
-    {
-        StringBuilder returnString = new StringBuilder("Sorties:");
-        for ( String chaine : exits.keySet() )
-            returnString.append( " " +  chaine);
-        return description + ".\n" + returnString.toString();
+	
+    public String getExitString(){
+        String returnString = "Exits:";
+        Set<String> keys = exits.keySet();
+        for(String exit : keys)
+            returnString += " " + exit;
+        return returnString;
     }
+	
+	
+	
 	public String getLongDescription()
 	{
 		return getExitString();
