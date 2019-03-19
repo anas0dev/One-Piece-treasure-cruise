@@ -106,6 +106,7 @@ public class UserInterface implements ActionListener
         JPanel panel3 = new JPanel();
         JPanel panel4 = new JPanel();
         JPanel panel5 = new JPanel();
+        JPanel panel6 = new JPanel();
         image = new JLabel();
         
         ButtonL = new JButton("north");
@@ -152,10 +153,15 @@ public class UserInterface implements ActionListener
         panel1.add(ButtonE, BorderLayout.EAST);
         ButtonE.addActionListener(this);
         
+        panel6.setLayout(new BorderLayout());
+        panel6.add(help, BorderLayout.EAST);
+        help.addActionListener(this);
+        panel6.add(ButtonBack, BorderLayout.WEST);
+        ButtonBack.addActionListener(this);
+        
         panel2.setLayout(new BorderLayout(20,50));
       ///  panel2.add(Horloge, BorderLayout.WEST);
-        panel2.add(help, BorderLayout.EAST);
-        help.addActionListener(this);
+        panel2.add(panel6, BorderLayout.EAST);
         panel2.add(RBeamer, BorderLayout.SOUTH);
         RBeamer.addActionListener(this);
         panel2.add(panel1, BorderLayout.CENTER);
@@ -190,6 +196,7 @@ public class UserInterface implements ActionListener
         else if(e.getActionCommand().equals("south west"))engine.interpretCommand("go southwest");
         else if(e.getActionCommand().equals("help"))engine.interpretCommand("help");
         else if(e.getActionCommand().equals("Quit"))engine.interpretCommand("quit");
+        else if(e.getActionCommand().equals("Back"))engine.interpretCommand("back");
         else
         processCommand();
     }
