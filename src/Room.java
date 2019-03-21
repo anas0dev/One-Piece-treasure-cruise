@@ -70,6 +70,16 @@ public class Room {
         return returnString;
     }
 
+    /*
+    * Return a description of the item in room
+    */
+    public StringBuilder getItemString(){
+        StringBuilder returnString = new StringBuilder("Items:");
+        for(String item :items.keySet())
+        	returnString.append(" "+item);
+        return returnString;
+    }
+
     /**
     * Return the room that is reached if we go from this
     * room in direction "direction". If there is no room in
