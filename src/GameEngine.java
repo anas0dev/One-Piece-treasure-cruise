@@ -11,6 +11,9 @@
  */
 package src;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class GameEngine{
@@ -169,12 +172,39 @@ public class GameEngine{
             eat();
         else if (commandWord.equals("look"))
             look();
+        else if (commandWord.equals("test"))
+        	test(command);
         else if (commandWord.equals("quit")) {
             if(command.hasSecondWord())
                 gui.println("Quit what?");
             else
                 endGame();
         }
+    }
+    
+    private void test(Command command)
+    {
+    	if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            gui.println("Il faut entrer un fichier");
+            return;
+        }
+    	
+    	try {
+			Scanner file = new Scanner(new File(command.getSecondWord()));
+			
+			while(file.hasNextLine()) {
+				interpretCommand(file.nextLine());
+			}
+			
+			file.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			gui.println("File not existe!");
+			e.printStackTrace();
+		}
+    		
+    	
     }
 
     /*
@@ -222,10 +252,11 @@ public class GameEngine{
 
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);
-        displacement.push(currentRoom);
+//        displacement.push(currentRoom);
         if (nextRoom == null)
             gui.println("There is no door!");
         else {
+        	displacement.push(currentRoom);
             currentRoom = nextRoom;
             gui.println(currentRoom.getLongDescription());
             if(currentRoom.getImageName() != null)
