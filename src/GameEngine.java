@@ -12,7 +12,7 @@
 package src;
 
 import java.util.Stack;
-
+import java.io.*;
 public class GameEngine{
 
 
@@ -20,14 +20,16 @@ public class GameEngine{
     private Room currentRoom;
     private UserInterface gui;
     private Stack<Room> displacement;
+    private Player player;
         
     /**
-     * Create the game and initialise its internal map.
-     */
+    * Create the game and initialise its internal map.
+    */
     public GameEngine() 
     {
         parser = new Parser();
         displacement = new Stack<Room>(); 
+        player = new Player("sangoku",250,currentRoom);
         createRooms();
     }
     /*
@@ -79,47 +81,39 @@ public class GameEngine{
         sidiBouSaid = new Room("Sidi bou Said c'est la meilleur vue du monde ","src/images/sidibousaid.jpg");
         // initialise room exits & items
         cocoyashi.setExits("north",nooberland);
-        cocoyashi.addItems("gold",new Item("this item have 2000 years",10,10));
-        
+        cocoyashi.addItems("gold",new Item("gold","you can sell gold to get money",10,10));
+        cocoyashi.addItems("silver",new Item("silver","you can sell silver to get money",50,10));
+
         nooberland.setExits("east",water7);
         nooberland.setExits("south",cocoyashi);
         nooberland.setExits("west",wanoKuni);
         nooberland.setExits("northWest",kalen);
         nooberland.setExits("northEast",alabasta);
-        nooberland.addItems("sakura",new Item("this item give you power",50,10));
-
+        nooberland.addItems("sakura",new Item("sakura","this item give you power",500,10));
 
         wanoKuni.setExits("east",nooberland);
-        wanoKuni.addItems("fafa",new Item("this item give you power",50,10));
-        wanoKuni.addItems("baba",new Item("this item give you life",50,10));
-        wanoKuni.addItems("dada",new Item("this item give you nothing",50,10));
+        wanoKuni.addItems("fafa",new Item("fafa","this item give you power",50,10));
+        wanoKuni.addItems("apple",new Item("apple","this item give you life ",50,10));
 
         water7.setExits("west",nooberland);
-        water7.addItems("bar",new Item("this item make you rich",50,10));
 
         kalen.setExits("north",skypia);
         kalen.setExits("southEast",nooberland);
-        kalen.addItems("foo",new Item("this item make you famous",50,10));
 
         ortopia.setExits("north",krakenland);
         ortopia.setExits("west",kalen);
         ortopia.setExits("northEast",amazoneLily);
-        ortopia.addItems("dada",new Item("this item make you hungry",50,10));
 
         alabasta.setExits("southWest",nooberland);
-        alabasta.addItems("dada",new Item("this item make you funny",50,10));
 
         krakenland.setExits("south",ortopia);
         krakenland.setExits("west",skypia);
-        krakenland.addItems("dada",new Item("this item make you dumb",50,10));
 
         amazoneLily.setExits("southWest",ortopia);
         amazoneLily.setExits("northEast",laMarsa);
-        amazoneLily.addItems("baba",new Item("this item give you life",50,10));
 
         laMarsa.setExits("northWest",elMourouj);
-        wanoKuni.addItems("dada",new Item("this item give you nothing",50,10));
-
+        
         elMourouj.setExits("southEast",laMarsa);
         elMourouj.setExits("southWest",krakenland);
 
@@ -132,12 +126,10 @@ public class GameEngine{
         skypia.setExits("northEast",rafel);
 
         paris8.setExits("south",skypia);
-        paris8.addItems("medaille",new Item("this item make you hero",50,10));
-
+        paris8.addItems("cookie",new Item("cookie","This magic cookie multiply your bag weight by 2",250,0));
         rafel.setExits("southWest",skypia);
         rafel.setExits("north",pontDuJoie);
         rafel.setExits("southEast",parcB);
-        rafel.addItems("PNL",new Item("this item make you the best",50,10));
 
 
         currentRoom = cocoyashi;  // start game outside
@@ -150,14 +142,15 @@ public class GameEngine{
      */
     public void interpretCommand(String commandLine) 
     {
-        gui.println(commandLine);
+        
+    	
+    	gui.println(commandLine);
         Command command = parser.getCommand(commandLine);
 
         if(command.isUnknown()) {
             gui.println("I don't know what you mean...");
             return;
         }
-
         String commandWord = command.getCommandWord();
         if (commandWord.equals("help"))
             printHelp();
@@ -166,9 +159,17 @@ public class GameEngine{
         else if (commandWord.equals("back"))
         	backRoom();
         else if (commandWord.equals("eat"))
-            eat();
+            eat(command);
         else if (commandWord.equals("look"))
             look();
+        else if (commandWord.equals("test"))
+        	testFile(command);
+        else if (commandWord.equals("take"))
+            take(command);
+        else if (commandWord.equals("check"))
+            check();
+        else if (commandWord.equals("drop"))
+        	drop(command);
         else if (commandWord.equals("quit")) {
             if(command.hasSecondWord())
                 gui.println("Quit what?");
@@ -176,7 +177,6 @@ public class GameEngine{
                 endGame();
         }
     }
-
     /*
     * Get you back to the room just before 
     */
@@ -186,7 +186,7 @@ public class GameEngine{
     	else {
     		currentRoom=displacement.pop();
     		gui.println("You back to "+currentRoom.getDescription());
-    		gui.println("You Maybe Missed those items :"+currentRoom.getItemsDescription());
+    		gui.println("You Maybe Missed those "+currentRoom.getItemsDescription());
     		if(currentRoom.getImageName()!=null)
     			gui.showImage(currentRoom.getImageName());
     	}
@@ -202,16 +202,41 @@ public class GameEngine{
     {
         gui.println("You are lost. You are alone. You wander");
         gui.println("around at Saint Denis, University Campus." + "\n");
-        gui.print("Your command words are: " + parser.showCommands());
+        gui.print(parser.showCommands());
     }
 
 
+    /*
+    * 
+    */
+    private void testFile(Command command){
+    	if(!command.hasSecondWord()) {
+    		gui.println("Test what ?\n<usage> you have to put a file name ");
+    		return;
+    	}    	
+        String line = null;
+        String fileName="testFiles/"+command.getSecondWord();
+        try {
+     
+            BufferedReader bufferedReader =  new BufferedReader(new FileReader(fileName));
+            while((line = bufferedReader.readLine()) != null) {				
+                interpretCommand(line);
+            }   
+            bufferedReader.close();         
+        }
+        catch(FileNotFoundException e) {
+            gui.println("Unable to open file >" + fileName);                
+        }
+        catch(IOException e) {
+        	gui.println("Error reading file >" + fileName);
+        }
+    	
+    }
     /** 
      * Try to go to one direction. If there is an exit, enter the new
      * room, otherwise print an error message.
      */
-    private void goRoom(Command command) 
-    {
+    private void goRoom(Command command){
         if(!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
             gui.println("Go where?");
@@ -226,11 +251,49 @@ public class GameEngine{
         if (nextRoom == null)
             gui.println("There is no door!");
         else {
+        	player.setLocation(nextRoom);
             currentRoom = nextRoom;
             gui.println(currentRoom.getLongDescription());
             if(currentRoom.getImageName() != null)
                 gui.showImage(currentRoom.getImageName());
         }
+    }
+    private void take(Command command) {
+    	if(!command.hasSecondWord()) {
+    		gui.print("take What ?");
+    		return;
+    	}
+        String newItem=command.getSecondWord();
+        if(currentRoom.checkItemInTheRoom(newItem)!=null){
+        	if(player.checkWeight(newItem, currentRoom.checkItemInTheRoom(newItem) )) {
+        		player.addItemToBag(newItem,  currentRoom.checkItemInTheRoom(newItem));
+                currentRoom.removeItems(newItem);
+
+        	}else {
+                gui.print("You cannot pick up this item it's too heavy");
+                gui.print("\n");
+        	}
+        }else{
+            gui.print("You cannot carry this item maybe does'nt exist");
+            gui.print("\n");
+        }    	
+    }
+    
+    private void drop(Command command) {
+    	if(!command.hasSecondWord()) {
+    		gui.print("Drop What ?");
+    		return;
+    	}
+    	String dropItem=command.getSecondWord();
+        if(player.checkItemInTheBag(dropItem)!=null){
+        	currentRoom.addItems(dropItem, player.checkItemInTheBag(dropItem));
+        	player.removeItemFromBag(dropItem);
+        }
+        else{
+            gui.print("Item does'nt present in your bag");
+            gui.print("\n");
+        }
+
     }
     /*
     * Print goodbye and enable the entry field
@@ -245,13 +308,35 @@ public class GameEngine{
     */
     private void look(){
         gui.print(currentRoom.getLongDescription());
+        gui.print("\n");
     }
     
+    private void check(){
+        gui.print(player.showMyBag());
+        gui.print("\n");
+    }
     /*
     * Print eat
     */
-    private void eat(){
-        gui.println("You had eaten now and you are not hungry any more");
+    private void eat(Command command){
+        if(!command.hasSecondWord()) {
+    		gui.print("Eat What ?");
+    		return;
+    	}
+    	String eatItem=command.getSecondWord();
+        String[] validItemToEat = {"cookie","apple"};
+        for(int i=0;i<validItemToEat.length;i++){
+            if(eatItem.equals(validItemToEat[i])){
+            	if(player.checkItemInTheBag(eatItem)!=null){
+            		player.removeItemFromBag(eatItem);
+                    player.setWeight((player.getWeight()*2));	
+                    gui.println("You had eaten a "+eatItem);
+                }
+            	else {
+            		gui.print("Item does'nt exist in you bag");
+            	}
+            }
+        }
     }
     
 }

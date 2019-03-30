@@ -13,7 +13,7 @@ public class UserInterface implements ActionListener{
 	    private JTextField entryField;
 	    private JTextArea log;
 	    private JLabel image;
-	    private JButton north,northEast,northWest,east,west,southEast,southWest,south,look,help,eat,none;
+	    private JButton north,northEast,northWest,east,west,southEast,southWest,south,look,help,back,none;
 	    /**
 	     * Construct a UserInterface. As a parameter, a Game Engine
 	     * (an object processing and executing the game commands) is
@@ -216,14 +216,14 @@ public class UserInterface implements ActionListener{
 			panel.add(help,gbc);
 
 
-			eat=new JButton("Eat");
-			eat.setPreferredSize(new Dimension(60, 20));
+			back=new JButton("Back");
+			back.setPreferredSize(new Dimension(60, 20));
 			gbc.gridx=3;
 			gbc.gridy=7;
 			gbc.gridheight=1;
 	        gbc.gridwidth=1;
-			eat.addActionListener(this);
-			panel.add(eat,gbc);
+			back.addActionListener(this);
+			panel.add(back,gbc);
 
 			look=new JButton("Look");
 			look.setPreferredSize(new Dimension(80, 20));
@@ -286,8 +286,8 @@ public class UserInterface implements ActionListener{
 	        else if(source == look)
 	        	engine.interpretCommand("look");
 
-	        else if(source == eat)
-	        	engine.interpretCommand("eat");
+	        else if(source == back)
+	        	engine.interpretCommand("back");
 
 	        else 
 	        	processCommand();
