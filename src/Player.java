@@ -4,12 +4,14 @@ package src;
 public class Player {
 	
 	private String 						name;
-	private int 							bagWeight;
+	private int 						bagWeight;
 	private Room   						location;
 	private ItemList					bag;
+	private int 						solde;
 	
-	public Player(String name,int weight,Room actualRoom){
+	public Player(String name,int weight,Room actualRoom,int solde){
 		this.name=name;
+		this.solde=solde;
 		this.bagWeight=weight;
 		this.location=actualRoom;
 		bag=new ItemList();
@@ -26,7 +28,12 @@ public class Player {
 	public void setLocation(Room actualRoom) {
 		this.location=actualRoom;
 	}
-	
+	public void setSolde(int solde) {
+		this.solde=solde;
+	}
+	public int getSolde() {
+		return this.solde;
+	}
 	public String getName() {
 		return this.name;
 	}

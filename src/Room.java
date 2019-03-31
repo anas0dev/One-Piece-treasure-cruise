@@ -46,15 +46,20 @@ public class Room {
     public void setExits(String direction,Room neighbor){
         exits.put(direction, neighbor);
     }
-
+    
     /**
-    * Define the items of this room.
+    * Add  items to this room.
+    * @param roomName room Name
     * @param Item item.
     */
     public void addItems(String roomName,Item item){
         items.addItem(roomName,item);
     }
     
+    /**
+    * remove items from this room.
+    * @param itemName item Name
+    */
     public void removeItems(String itemName){
         items.removeItem(itemName);
     }
@@ -98,11 +103,15 @@ public class Room {
     {
         return description;
     }
-    
+    /**
+    * This function return Item object if it's present in the room 
+    */
     public Item checkItemInTheRoom(String name) {
     	return items.checkItemInList(name);
     }
-    
+    /**
+    * This function allows to get all items description from ItemList 
+    */
     public String getItemsDescription() {
 		return "Items :"+items.getItemsDescription();
     }
