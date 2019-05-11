@@ -131,9 +131,7 @@ public class ItemList {
 		StringBuilder returnString=new StringBuilder();
 		if(enemies.isEmpty()) 
 			return returnString.append("No Enemies here");
-		
 		for(Enemy x : enemies.values()) {
-			System.out.println(x.getName());
 			returnString.append(" "+x.getName());
 		}
 		return returnString;

@@ -2,6 +2,7 @@ package src;
 
 import javax.swing.*;
 
+import src.*;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 import sun.audio.ContinuousAudioDataStream;
@@ -14,7 +15,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList; // import the ArrayList class
-
 //import java.awt.image.*;
 public class UserInterface implements ActionListener {
 
@@ -28,8 +28,8 @@ public class UserInterface implements ActionListener {
 	private AudioStream BGM;
 	private AudioPlayer MGP = AudioPlayer.player;
 	private	ContinuousAudioDataStream loop = null;
-
-
+	private GridBagConstraints gbc;
+	private JPanel panel;
 
 	/**
 	 * Construct a UserInterface. As a parameter, a Game Engine (an object
@@ -65,7 +65,7 @@ public class UserInterface implements ActionListener {
 	public void showImage(String imageName) {
 		URL imageURL = this.getClass().getClassLoader().getResource(imageName);
 		if (imageURL == null)
-			System.out.println("image not found");
+			System.out.println("image not found"+imageName);
 		else {
 			ImageIcon icon = new ImageIcon(imageURL);
 			image.setIcon(icon);
@@ -105,22 +105,23 @@ public class UserInterface implements ActionListener {
 		log = new JTextArea();
 		log.setEditable(false);
 		JScrollPane listScroller = new JScrollPane(log);
-		listScroller.setPreferredSize(new Dimension(400, 200));
+		listScroller.setPreferredSize(new Dimension(640, 200));
 		listScroller.setMinimumSize(new Dimension(250, 100));
 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
+
 		image = new JLabel();
 
 		panel.setLayout(new GridBagLayout());
 
-		GridBagConstraints gbc = new GridBagConstraints();
+		gbc = new GridBagConstraints();
 
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.gridheight = 1;
 		// gbc.gridwidth=6;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.gridwidth = GridBagConstraints.PAGE_END;
 		panel.add(image, gbc);
 
 		gbc.gridx = 0;
@@ -297,6 +298,8 @@ public class UserInterface implements ActionListener {
 		// add some event listeners to some components
 		myFrame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
+				Save x=new Save();
+				x.clearFile();
 				System.exit(0);
 			}
 		});
@@ -402,7 +405,7 @@ public class UserInterface implements ActionListener {
         MGP.start(loop);
 	
 	}
-	
+
 	public void setButtonColor(ArrayList<String> list){
 		north.setBackground(null);
 		south.setBackground(null);
@@ -461,5 +464,3 @@ public class UserInterface implements ActionListener {
 		engine.interpretCommand(parser.getCommand(line));
 	}
 }
-
-

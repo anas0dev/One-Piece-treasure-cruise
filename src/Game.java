@@ -1,4 +1,5 @@
 package src;
+
 /**
 *  This class is the main class of the "World of Zuul" application. 
 *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -27,10 +28,4 @@ public class Game
         engine.play(gui);
     }
     
-    /**
-    *  Main play routine.  Loops until end of play.
-    */
-    public static void main(String[] args) {
-		  new Game();
-    }
 }
