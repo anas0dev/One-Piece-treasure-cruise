@@ -63,7 +63,6 @@ public class GameEngine {
 
         do {
             LocalTime currentTime = LocalTime.now();
-            gui.sound("src/music/Pirate.wav");
             if (currentTime.getMinute() == localTime3.getMinute()) {
                 endGame();
                 finish = 1;

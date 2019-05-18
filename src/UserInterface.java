@@ -2,17 +2,9 @@ package src;
 
 import javax.swing.*;
 
-import src.*;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList; // import the ArrayList class
 //import java.awt.image.*;
@@ -25,9 +17,7 @@ public class UserInterface implements ActionListener {
 	private JLabel image, solde, bag, life, keys, strength, crew;
 	private JButton north, northEast, northWest, east, west, southEast, southWest, south, look, help, back, none;
 	private Parser parser;
-	private AudioStream BGM;
-	private AudioPlayer MGP = AudioPlayer.player;
-	private	ContinuousAudioDataStream loop = null;
+
 	private GridBagConstraints gbc;
 	private JPanel panel;
 
@@ -388,23 +378,6 @@ public class UserInterface implements ActionListener {
 		myFrame.setTitle(title);
 	}
 
-	public void sound(String sound) {
-        try{
-            InputStream test = new FileInputStream(sound);
-            BGM = new AudioStream(test);
-			AudioPlayer.player.start(BGM);
-
-        }
-        catch(FileNotFoundException e){
-            System.out.print(e.toString());
-        }
-        catch(IOException error)
-        {
-            System.out.print(error.toString());
-        }
-        MGP.start(loop);
-	
-	}
 
 	public void setButtonColor(ArrayList<String> list){
 		north.setBackground(null);
