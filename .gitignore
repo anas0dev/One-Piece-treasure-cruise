@@ -2,3 +2,4 @@ src/*.class
 .classpath
 .project
 src/.vscode/
+*.class
