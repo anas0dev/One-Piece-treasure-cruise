@@ -3,9 +3,9 @@ package src;
 import javax.swing.*;
 
 import src.*;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
+//import sun.audio.AudioPlayer;
+//import sun.audio.AudioStream;
+//import sun.audio.ContinuousAudioDataStream;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -25,9 +25,9 @@ public class UserInterface implements ActionListener {
 	private JLabel image, solde, bag, life, keys, strength, crew;
 	private JButton north, northEast, northWest, east, west, southEast, southWest, south, look, help, back, none;
 	private Parser parser;
-	private AudioStream BGM;
-	private AudioPlayer MGP = AudioPlayer.player;
-	private	ContinuousAudioDataStream loop = null;
+//	private AudioStream BGM;
+//	private AudioPlayer MGP = AudioPlayer.player;
+//	private	ContinuousAudioDataStream loop = null;
 	private GridBagConstraints gbc;
 	private JPanel panel;
 
@@ -391,8 +391,8 @@ public class UserInterface implements ActionListener {
 	public void sound(String sound) {
         try{
             InputStream test = new FileInputStream(sound);
-            BGM = new AudioStream(test);
-			AudioPlayer.player.start(BGM);
+//            BGM = new AudioStream(test);
+//			AudioPlayer.player.start(BGM);
 
         }
         catch(FileNotFoundException e){
@@ -402,7 +402,7 @@ public class UserInterface implements ActionListener {
         {
             System.out.print(error.toString());
         }
-        MGP.start(loop);
+//        MGP.start(loop);
 	
 	}
 

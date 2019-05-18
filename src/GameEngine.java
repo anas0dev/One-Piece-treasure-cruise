@@ -315,7 +315,7 @@ public class GameEngine {
             gui.println(currentRoom.getLongDescription());
             
             gui.setButtonColor(currentRoom.getExitButton());
-            gui.setTitle(currentRoom.getName());
+//            gui.setTitle(currentRoom.getName());
             gui.showImage(currentRoom.getImageName());
             if(currentRoom.getImageName() != null)
                 gui.showImage(currentRoom.getImageName());
