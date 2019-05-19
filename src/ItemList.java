@@ -6,8 +6,8 @@ import java.util.HashMap;
 * adventure game.
 * This ItemList class hold Item in a HashMap and it's used by both Player and Room
 * To take and drop Thing during the game
-* @author  Ghouibi Ghassen
-* @version 2.0 (March 2019)
+* @author  Université Paris8 Groupe5
+* @version 3.0 (May 2019)
 */
 public class ItemList {
 	

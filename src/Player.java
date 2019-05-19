@@ -4,8 +4,8 @@ package src;
 * This class contains player in the game the player have a crew to help him to find key and
 * affront enemies the player have a boat to carry stuff found in the area the purpose of the player 
 * is to find one piece legend that's allows him to win the game he can also buy thing
-* @author Ghouibi Ghassen
-* @version 3.0 (April 2019) 
+* @author  Université Paris8 Groupe5
+* @version 3.0 (May 2019) 
 */
 public class Player {
 	

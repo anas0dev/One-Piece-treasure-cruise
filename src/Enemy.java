@@ -3,8 +3,8 @@ package src;
 * This class contains Enemies in the game which try to kill the player  
 * The player must be stronger to kill them in the final room he have to kill 
 * the enemy to pick up the coin named "One Piece"
-* @author Ghouibi Ghassen
-* @version 3.0 (April 2019) 
+* @author  Université Paris8 Groupe5
+* @version 3.0 (May 2019)
 */
 public class Enemy extends Characters{
 	

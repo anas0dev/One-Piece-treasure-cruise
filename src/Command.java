@@ -14,23 +14,30 @@ package src;
 *
 * If the command had only one word, then the second word is <null>.
 * 
-* @author  Ghouibi Ghassen
-* @version 3.0 (April 2019)
+* @author  Université Paris8 Groupe5
+* @version 3.0 (May 2019)
 */
 
-class Command
+public abstract class Command
 {
-    private CommandWord commandWord;
+//    private CommandWord commandWord;
     private String      secondWord;
-
-    /**
+    protected UserInterface gui;
+    protected GameEngine engine;
+    
+	/**
      * Create a command object. First and second word must be supplied, but
      * either one (or both) can be null. The command word should be null to
      * indicate that this was a command that is not recognised by this game.
      */
-    public Command(CommandWord firstWord, String secondWord)
+    public Command()
     {
-        this.commandWord = firstWord;
+        secondWord = null;
+    }
+    
+    public Command(String secondWord)
+    {
+//        this.commandWord = firstWord;
         this.secondWord = secondWord;
     }
 
@@ -38,10 +45,10 @@ class Command
      * Return the command word (the first word) of this command. If the
      * command was not understood, the result is null.
      */
-    public CommandWord getCommandWord()
-    {
-        return commandWord;
-    }
+//    public CommandWord getCommandWord()
+//    {
+//        return commandWord;
+//    }
 
     /**
      * Return the second word of this command. Returns null if there was no
@@ -51,14 +58,24 @@ class Command
     {
         return secondWord;
     }
+    
+    /**
+     * Define the second word of this command (the word
+     * entered after the command word). Null indicates that 
+     * there was no second word.
+     */
+    public void setSecondWord(String secondWord)
+    {
+        this.secondWord = secondWord;
+    }
 
     /**
      * Return true if this command was not understood.
      */
-    public boolean isUnknown()
-    {
-        return (commandWord == CommandWord.UNKNOWN);
-    }
+//    public boolean isUnknown()
+//    {
+//        return (commandWord == CommandWord.UNKNOWN);
+//    }
 
     /**
      * Return true if the command has a second word.
@@ -67,5 +84,29 @@ class Command
     {
         return (secondWord != null);
     }
+    
+    public UserInterface getGui() {
+		return gui;
+	}
+
+	public void setGui(UserInterface gui) {
+		this.gui = gui;
+	}
+	
+	public GameEngine getEngine() {
+		return engine;
+	}
+
+	public void setEngine(GameEngine engine) {
+		this.engine = engine;
+	}
+    
+    /**
+     * Execute this command. A flag is returned indicating whether
+     * the game is over as a result of this command.
+     * 
+     * @return True, if game should exit; false otherwise.
+     */
+    public abstract boolean execute(Player player);
 }
 

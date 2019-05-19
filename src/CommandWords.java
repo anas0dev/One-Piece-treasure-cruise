@@ -7,8 +7,8 @@ package src;
 * This class holds an enumeration of all command words known to the game.
 * It is used to recognise commands as they are typed in.
 *
-* @author  Ghouibi Ghassen
-* @version 3.0 (April 2019)
+* @author  Université Paris8 Groupe5
+* @version 3.0 (May 2019)
 */
 import java.util.*;
 public class CommandWords
@@ -24,9 +24,9 @@ public class CommandWords
     public CommandWords(){
     	validCommands = new HashMap<String, CommandWord>();
         for(CommandWord command : CommandWord.values()) {
-            if(command != CommandWord.UNKNOWN) {
+//            if(command != CommandWord.UNKNOWN) {
                 validCommands.put(command.toString(), command);
-            }
+//            }
         }      
     }
     
@@ -39,12 +39,12 @@ public class CommandWords
     public CommandWord getCommandWord(String commandWord){
     	
         CommandWord command = validCommands.get(commandWord);
-        if(command != null) {
+//        if(command != null) {
             return command;
-        }
-        else {
-            return CommandWord.UNKNOWN;
-        }
+//        }
+//        else {
+//            return CommandWord.UNKNOWN;
+//        }
     }
     
     /**

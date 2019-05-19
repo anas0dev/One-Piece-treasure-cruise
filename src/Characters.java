@@ -3,8 +3,8 @@ package src;
 * This class contains characters in the game which allow the player to talk 
 * with characters. In case the player give an item to a characters if it's 
 * the correct the characters give help to player
-* @author Ghouibi Ghassen
-* @version 3.0 (April 2019) 
+* @author  Université Paris8 Groupe5
+* @version 3.0 (May 2019)
 */
 public class Characters{
 	

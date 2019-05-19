@@ -4,8 +4,8 @@ package src;
 * adventure game.
 * This Item take a description,weight and a price which can help
 * you during the game
-* @author  Ghouibi Ghassen
-* @version 2.0 (March 2019)
+* @author  Université Paris8 Groupe5
+* @version 3.0 (May 2019)
 */
 public class Item {
 	
