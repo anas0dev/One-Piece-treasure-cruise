@@ -1,3 +1,9 @@
+/**
+ * Implementation of the 'drop' user command.
+ * 
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
+ */
 package src.pkg_commands;
 
 import src.pkg_characters.*;
@@ -8,6 +14,11 @@ public class DropCommand extends Command {
 		command = "drop";
 	}
 	
+	/**
+	* This function allow to the player to drop things from his bag in the acual room 
+	* 
+	* @param player
+	*/
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

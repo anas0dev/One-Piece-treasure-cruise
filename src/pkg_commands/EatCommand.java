@@ -1,3 +1,6 @@
+/**
+* This function allow the user to things eatable of course in his bag
+*/
 package src.pkg_commands;
 
 import src.pkg_characters.*;

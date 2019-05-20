@@ -1,3 +1,6 @@
+/**
+* This function allows the player to talk with characters 
+*/
 package src.pkg_commands;
 import src.pkg_characters.*;
 

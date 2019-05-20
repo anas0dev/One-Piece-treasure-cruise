@@ -8,6 +8,9 @@ public class BackCommand extends Command {
 		command = "back";
 	}
 
+	/**
+     * Get you back to the room just before
+     */
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

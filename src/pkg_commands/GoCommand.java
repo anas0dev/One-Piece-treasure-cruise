@@ -1,8 +1,8 @@
 /**
  * Implementation of the 'go' user command.
  * 
-* @author  Universitï¿½ Paris8 Groupe5
-* @version 3.0 (May 2019)
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
  */
 package src.pkg_commands;
 
@@ -17,6 +17,8 @@ public class GoCommand extends Command {
 	/** 
      * Try to go to one direction. If there is an exit, enter the new
      * room, otherwise print an error message. Returns always 'false'.
+     * 
+     * @param player
      */
 	@Override
 	public boolean execute(Player player) {

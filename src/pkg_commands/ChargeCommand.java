@@ -8,6 +8,9 @@ public class ChargeCommand extends Command {
 		command = "charge";
 	}
 	
+	/**
+     * This function charge your beamer that allow's you to remeber this room
+     */
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub
