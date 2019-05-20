@@ -23,20 +23,42 @@ public class ItemList {
 		this.characters=new HashMap<String,Characters>();
 		this.enemies=new HashMap<String,Enemy>();
 	}
-
-
+	
+	/*
+	* Add a new character
+	* @param string for the character name
+	* @param Character for the new character
+	* return 
+	*/
 	public void addCharacters(String charactersName,Characters character){
 		characters.put(charactersName,character);
 	}
-
+	
+	/*
+	* Remove a character
+	* @param string for the character name
+	* return 
+	*/
 	public void removeCharacters(String characterName){
 		characters.remove(characterName);
 	}
-
+	
+	/*
+	* Add an new enemy
+	* @param string for the enemy name
+	* @param Enemy for the new enemy
+	* return 
+	*/
 	public void addEnemies(String enemiesName,Enemy enemy){
 		enemies.put(enemiesName,enemy);
 	}
-
+	
+	/*
+	* Remove an enemy
+	* @param string for the character name
+	* @param Character for the new character
+	* return 
+	*/
 	public void removeEnemy(String enemiesName){
 		enemies.remove(enemiesName);
 	}
@@ -46,7 +68,7 @@ public class ItemList {
 	* @param roomName the room name
 	* @param item	the object item
 	*/
-	public void addItem(String roomName,Item item) {
+	public void addItem(String roomName,Item item) {	
 		items.put(roomName,item);
 	}
 	/**
@@ -68,13 +90,23 @@ public class ItemList {
 //    	}
     	return items.get(name);
 	}
-
+	
+	/*
+	* Checks for the presence of an enemy
+	* @param string for the enemy name
+	* @return string
+	*/
 	public Enemy checkEnemiesInTheRoom(String name){
 //		if(enemies.get(name)==null)
 //			return null;
 		return enemies.get(name);
 	}
-
+	
+	/*
+	* Checks for the presence of a character
+	* @param string for the character name
+	* @return string
+	*/
 	public Characters checkCharatersInTheRoom(String name){
 //		if(characters.get(name)==null){
 //			return null;
@@ -117,6 +149,10 @@ public class ItemList {
 		return returnString;
 	}
 	
+	/*
+	* Get character description
+	* @return string
+	*/
 	public StringBuilder getCharactersDescription(){
 		StringBuilder returnString=new StringBuilder();
 		if(characters.isEmpty()) 
@@ -127,7 +163,11 @@ public class ItemList {
 		
 		return returnString;
 	}
-
+	
+	/*
+	* Get character description
+	* @return string
+	*/
 	public StringBuilder getEnemiesDescription(){
 		StringBuilder returnString=new StringBuilder();
 		if(enemies.isEmpty()) 
@@ -137,7 +177,11 @@ public class ItemList {
 		}
 		return returnString;
 	}
-
+	
+	/*
+	* Get greeting description
+	* @return string
+	*/
 	public StringBuilder getHi(){
 		StringBuilder returnString=new StringBuilder();
 		if(characters.isEmpty()) 
@@ -146,7 +190,12 @@ public class ItemList {
 			returnString.append(x.getName()+":"+x.getHello());
 		return returnString;
 	}
-
+	
+	/*
+	* Give item to character
+	* @param item
+	* @return string
+	*/
 	public String giveCharactersItem(Item item){
 
 		for(Characters x : characters.values()){
@@ -156,7 +205,12 @@ public class ItemList {
 		}
 		return "false";
 	}
-
+	
+	/*
+	* Get help description
+	* @param item
+	* @return string
+	*/
 	public StringBuilder getHelp(Item item){
 		StringBuilder returnString=new StringBuilder();
 		if(characters.isEmpty()) 
