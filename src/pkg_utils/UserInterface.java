@@ -80,7 +80,7 @@ public class UserInterface implements ActionListener {
 			south.removeActionListener(this);
 			help.removeActionListener(this);
 			back.removeActionListener(this);
-
+			this.myFrame.setVisible(false);
 		}
 	}
 
@@ -89,6 +89,7 @@ public class UserInterface implements ActionListener {
 	 */
 	private void createGUI() {
 		myFrame = new JFrame("One Piece Treasure Cruise");
+		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		entryField = new JTextField(34);
 
 		log = new JTextArea();
