@@ -1,3 +1,12 @@
+
+/**
+* This class contains characters in the game which allow the player to talk 
+* with characters. In case the player give an item to a characters if it's 
+* the correct the characters give help to player
+* @author  Université Paris8 Groupe5
+* @version 3.0 (May 2019)
+*/
+
 package src.pkg_utils;
 
 import src.pkg_characters.*;
@@ -9,7 +18,12 @@ public class Scenario{
     private HashMap<String,Room> rooms;
     private Room startRoom;
     private Room winRoom;
-
+    
+   /**
+	* Default constructor for the game scenario
+    * @param
+	* @return
+	**/
     public Scenario(){
         this.rooms=new HashMap<String,Room>();
         Room cocoyashi, nooberland, wanoKuni, water7, kalen, ortopia, alabasta, krakenland, amazoneLily, skypia,paris8, rafel, pontDuJoie, elMourouj, parcB, laMarsa, sidiBouSaid,theJackPot,fedayn,tatami,darka,tonyMontana,yokoshima,pnl,philadelphia,tosoma;
@@ -188,21 +202,28 @@ public class Scenario{
     }
 
     /**
-    * @return  the start room for this scenario
-    */
+    * @return the start room for this scenario
+    **/
     public Room getStartRoom(){
         return this.startRoom;
     }
-    
+       
+    /**
+    * @return the win room for this scenario
+    **/
     public Room getWinRoom(){
         return this.winRoom;
     }
+    
+    /**
+    * @return string for the room name
+    **/
     public Room getRoomByName(String name){
       return rooms.get(name);
     }
     /**
     * @return  a random room from this scenario
-    */
+    **/
     public Room getRandomRoom(){
         Random generator = new Random();
         Object[] values = rooms.values().toArray();
