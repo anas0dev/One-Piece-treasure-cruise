@@ -220,19 +220,19 @@ public class GameEngine {
     /**
      * Get you back to the room just before
      */
-    private void backRoom() {
-        if (displacement.isEmpty()) {
-            gui.println("You are at the start Point");
-            gui.setButtonColor(currentRoom.getExitButton());
-        } else {
-            currentRoom = displacement.pop();
-            gui.println("You back to " + currentRoom.getDescription());
-            gui.println("You Maybe Missed those " + currentRoom.getItemsDescription());
-            gui.setButtonColor(currentRoom.getExitButton());
-            if (currentRoom.getImageName() != null)
-                gui.showImage(currentRoom.getImageName());
-        }
-    }
+//    private void backRoom() {
+//        if (displacement.isEmpty()) {
+//            gui.println("You are at the start Point");
+//            gui.setButtonColor(currentRoom.getExitButton());
+//        } else {
+//            currentRoom = displacement.pop();
+//            gui.println("You back to " + currentRoom.getDescription());
+//            gui.println("You Maybe Missed those " + currentRoom.getItemsDescription());
+//            gui.setButtonColor(currentRoom.getExitButton());
+//            if (currentRoom.getImageName() != null)
+//                gui.showImage(currentRoom.getImageName());
+//        }
+//    }
 
     /**
      * This function charge your beamer that allow's you to remeber this room
@@ -265,35 +265,35 @@ public class GameEngine {
      * 
      * @param Command the command enter by th user
      */
-    private void testFile(Command command, String path) {
-        if (!command.hasSecondWord()) {
-            gui.println("\n<usage> you have to put a file name ");
-            return;
-        }
-        String line = null;
-        String fileName = path + command.getSecondWord();
-        try {
-
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
-            while ((line = bufferedReader.readLine()) != null) {
-                interpretCommand(parser.getCommand(line));
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-         
-            }  
-            bufferedReader.close();         
-        }
-        catch(FileNotFoundException e) {
-            gui.println("Unable to open file >" + fileName);                
-        }
-        catch(IOException e) {
-        	gui.println("Error reading file >" + fileName);
-        }
-    	
-    }
+//    private void testFile(Command command, String path) {
+//        if (!command.hasSecondWord()) {
+//            gui.println("\n<usage> you have to put a file name ");
+//            return;
+//        }
+//        String line = null;
+//        String fileName = path + command.getSecondWord();
+//        try {
+//
+//            BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
+//            while ((line = bufferedReader.readLine()) != null) {
+//                interpretCommand(parser.getCommand(line));
+//                try {
+//                    Thread.sleep(2000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//         
+//            }  
+//            bufferedReader.close();         
+//        }
+//        catch(FileNotFoundException e) {
+//            gui.println("Unable to open file >" + fileName);                
+//        }
+//        catch(IOException e) {
+//        	gui.println("Error reading file >" + fileName);
+//        }
+//    	
+//    }
     /** 
     * Try to go to one direction. If there is an exit, enter the new
     * room, otherwise print an error message.
@@ -542,39 +542,39 @@ public class GameEngine {
  things eatable of course in his bag
     * @param Command command enter by the user 
     */
-    private void eat(Command command){
-        if(!command.hasSecondWord()) {
-    		gui.print("Eat What ?");
-    		return;
-    	}
-    	String eatItem=command.getSecondWord();
-        String[] validItemToEat = {"cookie","apple","kiwi","banana","amande","avocat","orange","watermelon"};
-        for(int i=0;i<validItemToEat.length;i++){
-            if(eatItem.equals(validItemToEat[i])){
-            	if(player.checkItemInTheBag(eatItem)!=null){
-                    if(player.checkItemInTheBag(eatItem).getName()=="cookie"){
-                        gui.println("You eaten a "+eatItem);
-                        player.setStrength(player.getStrength()+(player.checkItemInTheBag("cookie")).getPrice());
-                        gui.setStrength(player.getStrength()+(player.checkItemInTheBag("cookie")).getPrice());
-                        player.removeItemFromBag(eatItem);
-                        player.setWeight((player.getWeight()*2));	
-                        gui.setBagContain(player.getTotalWeight(),player.getWeight());
-                    }
-                    else{
-                        gui.println("You had eaten a "+eatItem);
-                        player.setStrength(player.getStrength()+(player.checkItemInTheBag(eatItem)).getPrice());
-                        gui.setStrength(player.getStrength());
-                        player.removeItemFromBag(eatItem);
-                        gui.setBagContain(player.getTotalWeight(),player.getWeight()+player.getTotalWeight());
-                    }
-            		
-                }
-            	else {
-            		gui.print("Item does'nt exist in you bag");
-            	}
-            }
-        }
-    }
+//    private void eat(Command command){
+//        if(!command.hasSecondWord()) {
+//    		gui.print("Eat What ?");
+//    		return;
+//    	}
+//    	String eatItem=command.getSecondWord();
+//        String[] validItemToEat = {"cookie","apple","kiwi","banana","amande","avocat","orange","watermelon"};
+//        for(int i=0;i<validItemToEat.length;i++){
+//            if(eatItem.equals(validItemToEat[i])){
+//            	if(player.checkItemInTheBag(eatItem)!=null){
+//                    if(player.checkItemInTheBag(eatItem).getName()=="cookie"){
+//                        gui.println("You eaten a "+eatItem);
+//                        player.setStrength(player.getStrength()+(player.checkItemInTheBag("cookie")).getPrice());
+//                        gui.setStrength(player.getStrength()+(player.checkItemInTheBag("cookie")).getPrice());
+//                        player.removeItemFromBag(eatItem);
+//                        player.setWeight((player.getWeight()*2));	
+//                        gui.setBagContain(player.getTotalWeight(),player.getWeight());
+//                    }
+//                    else{
+//                        gui.println("You had eaten a "+eatItem);
+//                        player.setStrength(player.getStrength()+(player.checkItemInTheBag(eatItem)).getPrice());
+//                        gui.setStrength(player.getStrength());
+//                        player.removeItemFromBag(eatItem);
+//                        gui.setBagContain(player.getTotalWeight(),player.getWeight()+player.getTotalWeight());
+//                    }
+//            		
+//                }
+//            	else {
+//            		gui.print("Item does'nt exist in you bag");
+//            	}
+//            }
+//        }
+//    }
     /**
     * this function take you to the room where you charge the beamer last time 
     */

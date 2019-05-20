@@ -337,9 +337,9 @@ public class UserInterface implements ActionListener {
 
 		else if (source == look)
 			engine.interpretCommand(engine.getParser().getCommand("look"));
-//
-//		else if (source == back)
-//			engine.interpretCommand(new Command(CommandWord.BACK, ""));
+
+		else if (source == back)
+			engine.interpretCommand(engine.getParser().getCommand("back"));
 
 		else
 			processCommand();
