@@ -24,7 +24,7 @@ public class GameEngine {
     private Stack<Room> displacement;
 	private Player player;
     private Room beamerCharged;
-    private Scenario scenario;
+	private Scenario scenario;
 	private Save save;
 
     /**
@@ -193,29 +193,29 @@ public class GameEngine {
      * 
      * @param command
      */
-    private void attack(Command command) {
-
-        if (!command.hasSecondWord()) {
-            gui.print("attack Who ?");
-            return;
-        }
-        String name = command.getSecondWord();
-        if ((currentRoom.checkEnemiesInTheRoom(name)).getStrength() < player.getStrength()) {
-            currentRoom.addItems(currentRoom.checkEnemiesInTheRoom(name).getItem().getName(),
-                    currentRoom.checkEnemiesInTheRoom(name).getItem());
-            currentRoom.removeEnemy(currentRoom.checkEnemiesInTheRoom(name).getName());
-            gui.println("Enemy killed");
-        } else {
-            if (player.getCrewNumber() - 10 <= 0) {
-                player.setLife(player.getLife() - 1);
-                gui.setLife(player.getLife());
-            } else {
-                player.setCrewNumber(player.getCrewNumber() - 10);
-                gui.setCrew(player.getCrewNumber());
-                gui.println("Enemy kill some of your crew\n");
-            }
-        }
-    }
+//    private void attack(Command command) {
+//
+//        if (!command.hasSecondWord()) {
+//            gui.print("attack Who ?");
+//            return;
+//        }
+//        String name = command.getSecondWord();
+//        if ((currentRoom.checkEnemiesInTheRoom(name)).getStrength() < player.getStrength()) {
+//            currentRoom.addItems(currentRoom.checkEnemiesInTheRoom(name).getItem().getName(),
+//                    currentRoom.checkEnemiesInTheRoom(name).getItem());
+//            currentRoom.removeEnemy(currentRoom.checkEnemiesInTheRoom(name).getName());
+//            gui.println("Enemy killed");
+//        } else {
+//            if (player.getCrewNumber() - 10 <= 0) {
+//                player.setLife(player.getLife() - 1);
+//                gui.setLife(player.getLife());
+//            } else {
+//                player.setCrewNumber(player.getCrewNumber() - 10);
+//                gui.setCrew(player.getCrewNumber());
+//                gui.println("Enemy kill some of your crew\n");
+//            }
+//        }
+//    }
 
     /**
      * Get you back to the room just before
@@ -237,18 +237,18 @@ public class GameEngine {
     /**
      * This function charge your beamer that allow's you to remeber this room
      */
-    private void charge() {
-        if (player.checkItemInTheBag("beamer") != null) {
-            if (player.checkItemInTheBag("ammo") != null) {
-                player.removeItemFromBag("ammo");
-                beamerCharged = currentRoom;
-            } else {
-                gui.println("You are OUT OF AMMO");
-            }
-        } else {
-            gui.println("You must have a beamer first");
-        }
-    }
+//    private void charge() {
+//        if (player.checkItemInTheBag("beamer") != null) {
+//            if (player.checkItemInTheBag("ammo") != null) {
+//                player.removeItemFromBag("ammo");
+//                beamerCharged = currentRoom;
+//            } else {
+//                gui.println("You are OUT OF AMMO");
+//            }
+//        } else {
+//            gui.println("You must have a beamer first");
+//        }
+//    }
 
     /**
      * Print out some help information. Here we print some stupid, cryptic message
@@ -391,41 +391,41 @@ public class GameEngine {
     * This function give characters money or stuff to help you 
     * @param command
     */
-    private void give(Command command){
-        if(!command.hasSecondWord()){
-            gui.print("Give What ?");
-            return;
-        }
-        String givenItem=command.getSecondWord();
-        if(currentRoom.checkCharatersInTheRoom("wanoKuni")!=null){
-            if(player.getSolde()- currentRoom.checkCharatersInTheRoom("wanoKuni").getItem().getPrice() >0){
-                player.setSolde(player.getSolde()- currentRoom.checkCharatersInTheRoom("wanoKuni").getItem().getPrice());
-                gui.setSolde(player.getSolde());
-                gui.println(currentRoom.checkCharatersInTheRoom("wanoKuni").getHelp());
-            }else{
-                gui.println("You don't have enough money Sorry");
-            }
-        }
-        else if(currentRoom.checkCharatersInTheRoom("pontDuJoie")!=null){
-            if(player.getSolde()- currentRoom.checkCharatersInTheRoom("pontDuJoie").getItem().getPrice() >0){
-                player.setSolde(player.getSolde()- currentRoom.checkCharatersInTheRoom("pontDuJoie").getItem().getPrice());
-                gui.setSolde(player.getSolde());
-                gui.println(currentRoom.checkCharatersInTheRoom("pontDuJoie").getHelp());
-            }else{
-                gui.println("You don't have enough money Sorry");
-            }
-        }
-        else{
-            if(player.checkItemInTheBag(givenItem)!=null){
-                gui.print(currentRoom.giveCharactersItem(player.checkItemInTheBag(givenItem)));
-                player.removeItemFromBag(givenItem);
-                gui.setBagContain(player.getTotalWeight(),player.getWeight()+player.getTotalWeight());
-            }
-            else{
-                gui.print("You don't have this item in your bag !");
-            }
-        }
-    }
+//    private void give(Command command){
+//        if(!command.hasSecondWord()){
+//            gui.print("Give What ?");
+//            return;
+//        }
+//        String givenItem=command.getSecondWord();
+//        if(currentRoom.checkCharatersInTheRoom("wanoKuni")!=null){
+//            if(player.getSolde()- currentRoom.checkCharatersInTheRoom("wanoKuni").getItem().getPrice() >0){
+//                player.setSolde(player.getSolde()- currentRoom.checkCharatersInTheRoom("wanoKuni").getItem().getPrice());
+//                gui.setSolde(player.getSolde());
+//                gui.println(currentRoom.checkCharatersInTheRoom("wanoKuni").getHelp());
+//            }else{
+//                gui.println("You don't have enough money Sorry");
+//            }
+//        }
+//        else if(currentRoom.checkCharatersInTheRoom("pontDuJoie")!=null){
+//            if(player.getSolde()- currentRoom.checkCharatersInTheRoom("pontDuJoie").getItem().getPrice() >0){
+//                player.setSolde(player.getSolde()- currentRoom.checkCharatersInTheRoom("pontDuJoie").getItem().getPrice());
+//                gui.setSolde(player.getSolde());
+//                gui.println(currentRoom.checkCharatersInTheRoom("pontDuJoie").getHelp());
+//            }else{
+//                gui.println("You don't have enough money Sorry");
+//            }
+//        }
+//        else{
+//            if(player.checkItemInTheBag(givenItem)!=null){
+//                gui.print(currentRoom.giveCharactersItem(player.checkItemInTheBag(givenItem)));
+//                player.removeItemFromBag(givenItem);
+//                gui.setBagContain(player.getTotalWeight(),player.getWeight()+player.getTotalWeight());
+//            }
+//            else{
+//                gui.print("You don't have this item in your bag !");
+//            }
+//        }
+//    }
     /**
     * Print goodbye and enable the entry field
     */
@@ -481,9 +481,9 @@ public class GameEngine {
     /**
     * This function allows the player to talk with characters 
     */
-    private void talk(){
-        gui.println(currentRoom.getCharactersHi());
-    }
+//    private void talk(){
+//        gui.println(currentRoom.getCharactersHi());
+//    }
     /**
     * This function allows the player to pay bills to have exits room
     * other case he lose
@@ -578,19 +578,27 @@ public class GameEngine {
     /**
     * this function take you to the room where you charge the beamer last time 
     */
-    private void fire(){
-        if(beamerCharged!=null){
-            currentRoom=beamerCharged;
-            gui.println("You was teleported to "+currentRoom.getDescription());
-            gui.println("You Maybe Missed those "+currentRoom.getItemsDescription());
-            if(currentRoom.getImageName()!=null){
-                gui.showImage(currentRoom.getImageName());
-            }
-        }
-        else{
-            gui.println("charge your beamer before please");
-        }
-    }
+//    private void fire(){
+//        if(beamerCharged!=null){
+//            currentRoom=beamerCharged;
+//            gui.println("You was teleported to "+currentRoom.getDescription());
+//            gui.println("You Maybe Missed those "+currentRoom.getItemsDescription());
+//            if(currentRoom.getImageName()!=null){
+//                gui.showImage(currentRoom.getImageName());
+//            }
+//        }
+//        else{
+//            gui.println("charge your beamer before please");
+//        }
+//    }
+    
+    public Room getBeamerCharged() {
+		return beamerCharged;
+	}
+
+	public void setBeamerCharged(Room beamerCharged) {
+		this.beamerCharged = beamerCharged;
+	}
     
     public Stack<Room> getDisplacement() {
 		return displacement;

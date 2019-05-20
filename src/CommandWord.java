@@ -8,7 +8,7 @@ public enum CommandWord
 {
     // A value for each command word, plus one for unrecognised
     // commands.
-    GO(new GoCommand()), QUIT(new QuitCommand()), HELP(new HelpCommand()), LOOK(new LookCommand()), EAT(new EatCommand()), BACK(new BackCommand()), TEST(new TestCommand()), TAKE(new TakeCommand()), DROP(new DropCommand()), INVENTORY(new InventoryCommand()),OPEN(new OpenCommand()),PAY(new PayCommand());//,CHARGE("charge"),FIRE("fire"),TALK("talk"),GIVE("give"),ATTACK("attack"),HIRE("hire"),RECOVER("recover"),SAVE("save"),UNKNOWN("?");
+    GO(new GoCommand()), QUIT(new QuitCommand()), HELP(new HelpCommand()), LOOK(new LookCommand()), EAT(new EatCommand()), BACK(new BackCommand()), TEST(new TestCommand()), TAKE(new TakeCommand()), DROP(new DropCommand()), INVENTORY(new InventoryCommand()),OPEN(new OpenCommand()),PAY(new PayCommand()),CHARGE(new ChargeCommand()),FIRE(new FireCommand()),TALK(new TalkCommand()),GIVE(new GiveCommand()),ATTACK(new AttackCommand());//,HIRE("hire"),RECOVER("recover"),SAVE("save"),UNKNOWN("?");
 	
 	//The commandString
     private Command command;
