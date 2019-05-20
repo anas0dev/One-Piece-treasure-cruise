@@ -1,5 +1,4 @@
-
-import src.Game;
+import src.pkg_game.*;
 
 public class Main {
 
