@@ -25,7 +25,7 @@ public class GameEngine {
 	private Player player;
     private Room beamerCharged;
     private Scenario scenario;
-    private Save save;
+	private Save save;
 
     /**
      * Create the game and initialise its internal map.
@@ -135,7 +135,7 @@ public class GameEngine {
 //            take(commandLine);
 //            break;
 //        case CHECK:
-//            check();
+//            inventory();
 //            break;
 //        case DROP:
 //            drop(commandLine);
@@ -330,63 +330,63 @@ public class GameEngine {
     * This function allow to the player to pick up things in the room 
     * @param Command enter by the user 
     */
-    private void take(Command command){
-    	if(!command.hasSecondWord()) {
-    		gui.print("take What ?");
-    		return;
-    	}
-        String newItem=command.getSecondWord();
-        if(currentRoom.checkItemInTheRoom(newItem)!=null){
-        	if(player.checkWeight(player, currentRoom.checkItemInTheRoom(newItem))){
-                if(currentRoom.checkItemInTheRoom(newItem).getName()=="money"){
-                    player.setSolde(currentRoom.checkItemInTheRoom(newItem).getPrice()+player.getSolde());
-                    gui.setSolde(player.getSolde());
-                    gui.print("You are rich !");
-                }
-                else if(currentRoom.checkItemInTheRoom(newItem).getName()=="magicKey"){
-                    player.setMagicKeys(player.getMagicKeys()+1);
-                    gui.setKeys(player.getMagicKeys());
-                    currentRoom.removeItems(newItem);
-                    gui.println("Good find out other key");
-                }
-                else{
-        		    player.addItemToBag(player, currentRoom.checkItemInTheRoom(newItem));
-                    currentRoom.removeItems(newItem);
-                    gui.setBagContain(player.getTotalWeight(),player.getWeight()+player.getTotalWeight());
-                    gui.println("You just took a "+newItem);
-                }
-
-        	}else {
-                gui.print("You cannot pick up this item it's too heavy");
-                gui.print("\n");
-        	}
-        }else{
-            gui.print("You cannot carry this item maybe does'nt exist");
-            gui.print("\n");
-        }    	
-    }
+//    private void take(Command command){
+//    	if(!command.hasSecondWord()) {
+//    		gui.print("take What ?");
+//    		return;
+//    	}
+//        String newItem=command.getSecondWord();
+//        if(currentRoom.checkItemInTheRoom(newItem)!=null){
+//        	if(player.checkWeight(player, currentRoom.checkItemInTheRoom(newItem))){
+//                if(currentRoom.checkItemInTheRoom(newItem).getName()=="money"){
+//                    player.setSolde(currentRoom.checkItemInTheRoom(newItem).getPrice()+player.getSolde());
+//                    gui.setSolde(player.getSolde());
+//                    gui.print("You are rich !");
+//                }
+//                else if(currentRoom.checkItemInTheRoom(newItem).getName()=="magicKey"){
+//                    player.setMagicKeys(player.getMagicKeys()+1);
+//                    gui.setKeys(player.getMagicKeys());
+//                    currentRoom.removeItems(newItem);
+//                    gui.println("Good find out other key");
+//                }
+//                else{
+//        		    player.addItemToBag(player, currentRoom.checkItemInTheRoom(newItem));
+//                    currentRoom.removeItems(newItem);
+//                    gui.setBagContain(player.getTotalWeight(),player.getWeight()+player.getTotalWeight());
+//                    gui.println("You just took a "+newItem);
+//                }
+//
+//        	}else {
+//                gui.print("You cannot pick up this item it's too heavy");
+//                gui.print("\n");
+//        	}
+//        }else{
+//            gui.print("You cannot carry this item maybe does'nt exist");
+//            gui.print("\n");
+//        }    	
+//    }
     /**
     * This function allow to the player to drop things from his bag in the acual room 
     * @param command enter the user
     */
-    private void drop(Command command) {
-    	if(!command.hasSecondWord()) {
-    		gui.print("Drop What ?");
-    		return;
-    	}
-    	String dropItem=command.getSecondWord();
-        if(player.checkItemInTheBag(dropItem)!=null){
-        	currentRoom.addItems(dropItem, player.checkItemInTheBag(dropItem));
-            player.removeItemFromBag(dropItem);
-            gui.setBagContain(player.getTotalWeight(),player.getWeight()+player.getTotalWeight());
-            gui.println("You dropped "+dropItem);
-        }
-        else{
-            gui.print("Item does'nt present in your bag");
-            gui.print("\n");
-        }
-
-    }
+//    private void drop(Command command) {
+//    	if(!command.hasSecondWord()) {
+//    		gui.print("Drop What ?");
+//    		return;
+//    	}
+//    	String dropItem=command.getSecondWord();
+//        if(player.checkItemInTheBag(dropItem)!=null){
+//        	currentRoom.addItems(dropItem, player.checkItemInTheBag(dropItem));
+//            player.removeItemFromBag(dropItem);
+//            gui.setBagContain(player.getTotalWeight(),player.getWeight()+player.getTotalWeight());
+//            gui.println("You dropped "+dropItem);
+//        }
+//        else{
+//            gui.print("Item does'nt present in your bag");
+//            gui.print("\n");
+//        }
+//
+//    }
     /**
     * This function give characters money or stuff to help you 
     * @param command
@@ -457,10 +457,10 @@ public class GameEngine {
     /**
     * This function print the things present in the bag
     */
-    private void check(){
-        gui.print(player.showMyBag());
-        gui.print("\n");
-    }
+//    private void inventory(){
+//        gui.print(player.showMyBag());
+//        gui.print("\n");
+//    }
     /**
     * This function hire new crew to your ship 
     */
@@ -488,55 +488,55 @@ public class GameEngine {
     * This function allows the player to pay bills to have exits room
     * other case he lose
     */
-    private void pay() {
-        if(player.getLocation()==scenario.getRoomByName("elMourouj")){
-            if(player.getSolde()-10>=0){
-                player.setSolde(player.getSolde()-10);
-                gui.setSolde(player.getSolde());
-                gui.println("Thank you see you soon");
-                scenario.getRoomByName("elMourouj").setExits("southEast", scenario.getRoomByName("laMarsa"));
-                scenario.getRoomByName("elMourouj").setExits("southWest", scenario.getRoomByName("rafel"));
-                gui.setButtonColor(currentRoom.getExitButton());
-
-
-            }else{
-                gui.println("You don't have enough money sorry");
-                new QuitCommand();
-            }
-        }
-    }
+//    private void pay() {
+//        if(player.getLocation()==scenario.getRoomByName("elMourouj")){
+//            if(player.getSolde()-10>=0){
+//                player.setSolde(player.getSolde()-10);
+//                gui.setSolde(player.getSolde());
+//                gui.println("Thank you see you soon");
+//                scenario.getRoomByName("elMourouj").setExits("southEast", scenario.getRoomByName("laMarsa"));
+//                scenario.getRoomByName("elMourouj").setExits("southWest", scenario.getRoomByName("rafel"));
+//                gui.setButtonColor(currentRoom.getExitButton());
+//
+//
+//            }else{
+//                gui.println("You don't have enough money sorry");
+//                new QuitCommand();
+//            }
+//        }
+//    }
     /**
     * This function allow the player to open a new exits for a room
     */
-    private void openRoom(){
-        if(player.getLocation()==scenario.getRoomByName("pontDuJoie")){
-            if(player.getMagicKeys()==4){
-                scenario.getRoomByName("pontDuJoie").setExits("east",scenario.getWinRoom());
-                gui.println("Door Opening ...");
-                gui.setButtonColor(currentRoom.getExitButton());
-
-            }else{
-                gui.println("You must have 4 key before \n");
-            }
-        }
-        //tatami.setExits("north",darka);
-        else if(player.getLocation()==scenario.getRoomByName("tatami")){
-            if(player.checkItemInTheBag("darkaKey")!=null){
-                scenario.getRoomByName("tatami").setExits("north",scenario.getRoomByName("darka"));
-                gui.println("Cool you got the key there a new room north");
-                gui.setButtonColor(currentRoom.getExitButton());
-
-            }
-        }
-        else if(player.getLocation()==scenario.getRoomByName("krakenland")){
-            if(player.checkItemInTheBag("OrtopiaKey")!=null){
-                scenario.getRoomByName("krakenland").setExits("south", scenario.getRoomByName("ortopia"));
-                gui.println("Door south opened ");
-                gui.setButtonColor(currentRoom.getExitButton());
-
-            }
-        }
-    }
+//    private void openRoom(){
+//        if(player.getLocation()==scenario.getRoomByName("pontDuJoie")){
+//            if(player.getMagicKeys()==4){
+//                scenario.getRoomByName("pontDuJoie").setExits("east",scenario.getWinRoom());
+//                gui.println("Door Opening ...");
+//                gui.setButtonColor(currentRoom.getExitButton());
+//
+//            }else{
+//                gui.println("You must have 4 key before \n");
+//            }
+//        }
+//        //tatami.setExits("north",darka);
+//        else if(player.getLocation()==scenario.getRoomByName("tatami")){
+//            if(player.checkItemInTheBag("darkaKey")!=null){
+//                scenario.getRoomByName("tatami").setExits("north",scenario.getRoomByName("darka"));
+//                gui.println("Cool you got the key there a new room north");
+//                gui.setButtonColor(currentRoom.getExitButton());
+//
+//            }
+//        }
+//        else if(player.getLocation()==scenario.getRoomByName("krakenland")){
+//            if(player.checkItemInTheBag("OrtopiaKey")!=null){
+//                scenario.getRoomByName("krakenland").setExits("south", scenario.getRoomByName("ortopia"));
+//                gui.println("Door south opened ");
+//                gui.setButtonColor(currentRoom.getExitButton());
+//
+//            }
+//        }
+//    }
     /**
     * This function allow the user to 
  things eatable of course in his bag
@@ -598,6 +598,14 @@ public class GameEngine {
 
 	public void setDisplacement(Stack<Room> displacement) {
 		this.displacement = displacement;
+	}
+	
+	public Scenario getScenario() {
+		return scenario;
+	}
+
+	public void setScenario(Scenario scenario) {
+		this.scenario = scenario;
 	}
 	
     public Parser getParser() {
