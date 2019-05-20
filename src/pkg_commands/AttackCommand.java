@@ -1,6 +1,5 @@
 package src.pkg_commands;
 import src.pkg_characters.*;
-import src.pkg_game.*;
 
 public class AttackCommand extends Command {
 

@@ -1,7 +1,5 @@
 package src.pkg_commands;
 import src.pkg_characters.*;
-import src.pkg_game.*;
-import src.pkg_utils.*;
 
 public class ChargeCommand extends Command {
 

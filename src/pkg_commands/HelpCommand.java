@@ -1,6 +1,7 @@
 package src.pkg_commands;
 
-import src.pkg_utils.*;
+import src.pkg_characters.*;
+
 public class HelpCommand extends Command {
 	
 	public HelpCommand() {

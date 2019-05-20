@@ -1,4 +1,7 @@
 package src.pkg_commands;
+import src.pkg_game.*;
+import src.pkg_utils.*;
+import src.pkg_characters.*;
 /**
 * This class is the main class of the "World of Zuul" application. 
 * "World of Zuul" is a very simple, text based adventure game.  

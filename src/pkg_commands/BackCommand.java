@@ -1,5 +1,6 @@
 package src.pkg_commands;
 
+import src.pkg_characters.*;
 public class BackCommand extends Command {
 	
 	public BackCommand() {

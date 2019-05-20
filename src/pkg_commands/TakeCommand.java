@@ -1,5 +1,7 @@
 package src.pkg_commands;
 
+import src.pkg_characters.*;
+
 public class TakeCommand extends Command {
 
 	public TakeCommand() {

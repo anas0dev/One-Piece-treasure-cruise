@@ -7,7 +7,7 @@
 package src.pkg_commands;
 
 import src.pkg_characters.Player;
-
+import src.pkg_utils.*;
 public class GoCommand extends Command {
 	
 	public GoCommand() {
