@@ -1,8 +1,4 @@
-package src.pkg_items;
-
-import src.pkg_characters.*;
-import java.util.HashMap;
-/*
+/**
 * This class is part of "World of Zuul". "World of Zuul" is a simple, 
 * adventure game.
 * This ItemList class hold Item in a HashMap and it's used by both Player and Room
@@ -10,6 +6,11 @@ import java.util.HashMap;
 * @author  Universit� Paris8 Groupe5
 * @version 3.0 (May 2019)
 */
+package src.pkg_items;
+
+import src.pkg_characters.*;
+import java.util.HashMap;
+
 public class ItemList {
 	
 	private HashMap<String,Item> items;
@@ -24,7 +25,7 @@ public class ItemList {
 		this.enemies=new HashMap<String,Enemy>();
 	}
 	
-	/*
+	/**
 	* Add a new character
 	* @param string for the character name
 	* @param Character for the new character
@@ -34,7 +35,7 @@ public class ItemList {
 		characters.put(charactersName,character);
 	}
 	
-	/*
+	/**
 	* Remove a character
 	* @param string for the character name
 	* return 
@@ -43,7 +44,7 @@ public class ItemList {
 		characters.remove(characterName);
 	}
 	
-	/*
+	/**
 	* Add an new enemy
 	* @param string for the enemy name
 	* @param Enemy for the new enemy
@@ -53,7 +54,7 @@ public class ItemList {
 		enemies.put(enemiesName,enemy);
 	}
 	
-	/*
+	/**
 	* Remove an enemy
 	* @param string for the character name
 	* @param Character for the new character
@@ -85,32 +86,25 @@ public class ItemList {
 	* @return the object Item
 	*/
 	public Item checkItemInList(String name){
-//		if(items.get(name)==null) {
-//    		return null;
-//    	}
+
     	return items.get(name);
 	}
 	
-	/*
+	/**
 	* Checks for the presence of an enemy
 	* @param string for the enemy name
 	* @return string
 	*/
 	public Enemy checkEnemiesInTheRoom(String name){
-//		if(enemies.get(name)==null)
-//			return null;
 		return enemies.get(name);
 	}
 	
-	/*
+	/**
 	* Checks for the presence of a character
 	* @param string for the character name
 	* @return string
 	*/
 	public Characters checkCharatersInTheRoom(String name){
-//		if(characters.get(name)==null){
-//			return null;
-//		}
 		return characters.get(name);
 	}
 	/**
@@ -149,7 +143,7 @@ public class ItemList {
 		return returnString;
 	}
 	
-	/*
+	/**
 	* Get character description
 	* @return string
 	*/
@@ -164,7 +158,7 @@ public class ItemList {
 		return returnString;
 	}
 	
-	/*
+	/**
 	* Get character description
 	* @return string
 	*/
@@ -178,7 +172,7 @@ public class ItemList {
 		return returnString;
 	}
 	
-	/*
+	/**
 	* Get greeting description
 	* @return string
 	*/
@@ -191,7 +185,7 @@ public class ItemList {
 		return returnString;
 	}
 	
-	/*
+	/**
 	* Give item to character
 	* @param item
 	* @return string
@@ -206,7 +200,7 @@ public class ItemList {
 		return "false";
 	}
 	
-	/*
+	/**
 	* Get help description
 	* @param item
 	* @return string

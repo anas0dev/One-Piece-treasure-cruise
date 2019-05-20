@@ -1,6 +1,5 @@
-package src.pkg_items;
 /**
-* This class is part of "World of Zuul". "World of Zuul" is a simple, 
+* This class is part of "One Piece tresure cruise" is a simple, 
 * adventure game.
 * This Item take a description,weight and a price which can help
 * you during the game
@@ -8,9 +7,9 @@ package src.pkg_items;
 * @version 3.0 (May 2019)
 */
 
-/*
- * Class item concerns the different elements of an item
- */
+package src.pkg_items;
+
+
 public class Item {
 	
 	//hold the Item 
