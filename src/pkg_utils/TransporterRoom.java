@@ -11,7 +11,7 @@ package src.pkg_utils;
 public class TransporterRoom extends Room{
 	
 	
-      /**
+       /**
 	* @param description String description of this room.
 	* @param scenario The Scenario that's used in the Game class.
 	**/
@@ -20,7 +20,7 @@ public class TransporterRoom extends Room{
 		
 	}
 	
-      /**
+       /**
 	* @return a random room using the findRandomRoom() method.
 	**/
 	@Override
@@ -28,7 +28,7 @@ public class TransporterRoom extends Room{
 		return findRandomRoom();
 	}
 	
-      /**
+       /**
 	* @return a random room using the Scenario given in this class's constructor
 	**/
 	public Room findRandomRoom(){
