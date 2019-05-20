@@ -15,13 +15,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/*
+/**
  * Defaut constructor 
- */
+ **/
 public class Save {
  
     
-     /**
+   /**
     * Saves the current progress
     * @param string for the command
     * @return 
@@ -37,11 +37,11 @@ public class Save {
         }
     }
     
-    /**
+   /**
     * Rename a file
     * @param string for the file name
     * @return 
-    */
+    **/
     public void rename(String fileName) {
         File f1 = new File("savedGames/actualGame.txt");
         File f2 = new File("savedGames/"+fileName);
@@ -53,11 +53,11 @@ public class Save {
         }
     }
     
-    /**
+   /**
     * Clear the save
     * @param
     * @return 
-    */
+    **/
     public void clearFile(){
         PrintWriter writer=null;
         try {
