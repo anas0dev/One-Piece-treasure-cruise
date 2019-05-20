@@ -1,3 +1,11 @@
+/**
+* This class contains characters in the game which allow the player to talk 
+* with characters. In case the player give an item to a characters if it's 
+* the correct the characters give help to player
+* @author  Université Paris8 Groupe5
+* @version 3.0 (May 2019)
+*/
+
 package src.pkg_utils;
 
 public class TransporterRoom extends Room{
