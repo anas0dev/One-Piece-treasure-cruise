@@ -7,6 +7,10 @@ package src.pkg_items;
 * @author  Universit� Paris8 Groupe5
 * @version 3.0 (May 2019)
 */
+
+/*
+ * Class item concerns the different elements of an item
+ */
 public class Item {
 	
 	//hold the Item 

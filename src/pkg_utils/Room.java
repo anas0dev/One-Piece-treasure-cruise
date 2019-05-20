@@ -20,7 +20,6 @@ import src.pkg_items.*;
 import java.util.HashMap;
 import java.util.ArrayList; // import the ArrayList class
 
-//import java.util.Set;
 
 
 public class Room {
