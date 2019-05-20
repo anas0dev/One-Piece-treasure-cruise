@@ -18,11 +18,11 @@ public class Scenario{
     private Room startRoom;
     private Room winRoom;
     
-   /**
-	* Default constructor for the game scenario
+    /**
+    * Default constructor for the game scenario
     * @param
-	* @return
-	**/
+    * @return
+    **/
     public Scenario(){
         this.rooms=new HashMap<String,Room>();
         Room cocoyashi, nooberland, wanoKuni, water7, kalen, ortopia, alabasta, krakenland, amazoneLily, skypia,paris8, rafel, pontDuJoie, elMourouj, parcB, laMarsa, sidiBouSaid,theJackPot,fedayn,tatami,darka,tonyMontana,yokoshima,pnl,philadelphia,tosoma;
