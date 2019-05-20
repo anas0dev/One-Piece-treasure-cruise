@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
 import java.util.ArrayList; // import the ArrayList class
-//import java.awt.image.*;
+
 public class UserInterface implements ActionListener {
 
 	private GameEngine engine;
@@ -16,7 +16,6 @@ public class UserInterface implements ActionListener {
 	private JTextArea log;
 	private JLabel image, solde, bag, life, keys, strength, crew;
 	private JButton north, northEast, northWest, east, west, southEast, southWest, south, look, help, back, none;
-//	private Parser parser;
 
 	private GridBagConstraints gbc;
 	private JPanel panel;
