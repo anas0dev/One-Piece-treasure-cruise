@@ -1,8 +1,3 @@
-package src.pkg_utils;
-
-
-import src.pkg_characters.*;
-import src.pkg_items.*;
 /**
 * Class Room - a room in an adventure game.
 *
@@ -14,9 +9,16 @@ import src.pkg_items.*;
 * east, south, west.  For each direction, the room stores a reference
 * to the neighboring room, or null if there is no exit in that direction.
 * 
-* @author  Michael Kolling and David J. Barnes
-* @version 2006.03.30
+* @author  Groupe 5 Université Paris 8
+* @version 3.0 (May 2019)
 */
+
+package src.pkg_utils;
+
+
+import src.pkg_characters.*;
+import src.pkg_items.*;
+
 import java.util.HashMap;
 import java.util.ArrayList; // import the ArrayList class
 
@@ -133,38 +135,50 @@ public class Room {
         return description;
     }
     /**
-    * This function return Item object if it's present in the room 
+    * This method return Item object if it's present in the room 
     */
     public Item checkItemInTheRoom(String name) {
     	return items.checkItemInList(name);
     }
-
+    /**
+     * This method return Enemy object if it's present in the room 
+     */
     public Enemy checkEnemiesInTheRoom(String name){
         return items.checkEnemiesInTheRoom(name);
     }
-    
+    /**
+     * This method return Characters object if it's present in the room 
+     */
     public Characters checkCharatersInTheRoom(String nameRoom){
         return items.checkCharatersInTheRoom(nameRoom);
     }
     /**
-    * This function allows to get all items description from ItemList 
+    * This method allows to get all items description from ItemList 
     */
     public String getItemsDescription() {
 		return "Items :"+items.getItemsDescription();
     }
-
+    /**
+     * This method allows to get all Characters description from ItemList 
+     */
     public String getCharactersDescription() {
 		return "Characters :"+items.getCharactersDescription();
     }
-
+    /**
+     * This method allows to get all Enemies description from ItemList 
+     */
     public String getEnemiesDescription(){
         return "Enemies :"+items.getEnemiesDescription();
     }
+    /**
+     * This method get The Hi string of  characters
+     **/
     public String getCharactersHi(){
         return items.getHi()+"\n";
     }
-    
-
+    /**
+     * This method return the item of character
+     **/
     public String giveCharactersItem(Item item){
         if(items.giveCharactersItem(item)!="false"){
             return items.giveCharactersItem(item);
@@ -173,9 +187,15 @@ public class Room {
             return "This is not the item that i search but i'll keep it\n";
         }
     }
+    /**
+     * This method set the exits of the room
+     **/
     public void setExitByDescription(String direction,String Description){
         exits.put(direction, exits.get(Description));
     }
+    /**
+     * set image name
+     */
     public void setImageName(String imageName){
         this.imageName=imageName;
     }
