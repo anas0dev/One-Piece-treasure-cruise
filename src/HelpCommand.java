@@ -1,7 +1,12 @@
 package src;
 
 public class HelpCommand extends Command {
-
+	
+	public HelpCommand() {
+		// TODO Auto-generated constructor stub
+		command = "help";
+	}
+	
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

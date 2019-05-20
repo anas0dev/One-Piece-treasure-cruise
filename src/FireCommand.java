@@ -2,6 +2,11 @@ package src;
 
 public class FireCommand extends Command {
 
+	public FireCommand() {
+		// TODO Auto-generated constructor stub
+		command = "fire";
+	}
+	
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

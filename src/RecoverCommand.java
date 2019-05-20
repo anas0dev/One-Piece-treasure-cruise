@@ -4,12 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Stack;
 
-public class TestCommand extends Command {
-
-	public TestCommand() {
+public class RecoverCommand extends Command {
+	
+	public RecoverCommand() {
 		// TODO Auto-generated constructor stub
-		command = "test";
+		command = "recover";
 	}
 	
 	@Override
@@ -20,18 +21,19 @@ public class TestCommand extends Command {
             return false;
         }
 		
+		engine.getSave().clearFile();
+		engine.setDisplacement(new Stack<Room>());
+		engine.setScenario(new Scenario());
+		engine.setCurrentRoom(engine.getScenario().getStartRoom());
+		engine.setPlayer(new Player("sangoku", 250, engine.getCurrentRoom(), 50, 50, 4, 800, 3));
+		
         String line = null;
-        String fileName = "testFiles/" + getSecondWord();
+        String fileName = "savedGames/" + getSecondWord();
         
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
             while ((line = bufferedReader.readLine()) != null) {
                 engine.interpretCommand(engine.getParser().getCommand(line));
-//                try {
-//                    Thread.sleep(2000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
             }  
             bufferedReader.close();         
         }

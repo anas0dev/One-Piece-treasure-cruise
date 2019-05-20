@@ -24,9 +24,9 @@ public class CommandWords
     public CommandWords(){
     	validCommands = new HashMap<String, CommandWord>();
         for(CommandWord command : CommandWord.values()) {
-//            if(command != CommandWord.UNKNOWN) {
+            if(command != CommandWord.UNKNOWN) {
                 validCommands.put(command.toString(), command);
-//            }
+            }
         }      
     }
     
@@ -39,12 +39,12 @@ public class CommandWords
     public CommandWord getCommandWord(String commandWord){
     	
         CommandWord command = validCommands.get(commandWord);
-//        if(command != null) {
+        if(command != null) {
             return command;
-//        }
-//        else {
-//            return CommandWord.UNKNOWN;
-//        }
+        }
+        else {
+            return CommandWord.UNKNOWN;
+        }
     }
     
     /**

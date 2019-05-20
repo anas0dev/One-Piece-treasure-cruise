@@ -9,12 +9,7 @@ package src;
 public class GoCommand extends Command {
 	
 	public GoCommand() {
-		
-	}
-	
-	public GoCommand(String secondWord) {
-		setSecondWord(secondWord);
-		this.command = "go";
+		command = "go";
 	}
 	
 	/** 

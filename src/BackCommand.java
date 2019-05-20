@@ -1,6 +1,11 @@
 package src;
 
 public class BackCommand extends Command {
+	
+	public BackCommand() {
+		// TODO Auto-generated constructor stub
+		command = "back";
+	}
 
 	@Override
 	public boolean execute(Player player) {

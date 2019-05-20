@@ -2,6 +2,11 @@ package src;
 
 public class OpenCommand extends Command {
 
+	public OpenCommand() {
+		// TODO Auto-generated constructor stub
+		command = "open";
+	}
+	
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

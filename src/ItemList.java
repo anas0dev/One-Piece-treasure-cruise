@@ -62,22 +62,22 @@ public class ItemList {
 	* @return the object Item
 	*/
 	public Item checkItemInList(String name){
-		if(items.get(name)==null) {
-    		return null;
-    	}
+//		if(items.get(name)==null) {
+//    		return null;
+//    	}
     	return items.get(name);
 	}
 
 	public Enemy checkEnemiesInTheRoom(String name){
-		if(enemies.get(name)==null)
-			return null;
+//		if(enemies.get(name)==null)
+//			return null;
 		return enemies.get(name);
 	}
 
 	public Characters checkCharatersInTheRoom(String name){
-		if(characters.get(name)==null){
-			return null;
-		}
+//		if(characters.get(name)==null){
+//			return null;
+//		}
 		return characters.get(name);
 	}
 	/**

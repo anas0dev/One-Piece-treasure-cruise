@@ -23,7 +23,7 @@ public class GameEngine {
 	private UserInterface gui;
     private Stack<Room> displacement;
 	private Player player;
-    private Room beamerCharged;
+	private Room beamerCharged;
 	private Scenario scenario;
 	private Save save;
 
@@ -110,7 +110,7 @@ public class GameEngine {
     	command.setEngine(this);
     	command.execute(player);
 
-//        save.save(commandWord.toString() + " " + command.getSecondWord());
+        save.save(command.getCommand() + " " + command.getSecondWord());
 
 //        switch (commandWord) {
 //        case HELP:
@@ -447,7 +447,15 @@ public class GameEngine {
         gui.enable(false);
     }
 
-    /**
+    public Save getSave() {
+		return save;
+	}
+
+	public void setSave(Save save) {
+		this.save = save;
+	}
+
+	/**
     * Print the long description of the room
     */
 //    private void look(){
@@ -464,20 +472,20 @@ public class GameEngine {
     /**
     * This function hire new crew to your ship 
     */
-    private void hire(){
-        if((player.getSolde()-10)>0 ){
-            player.setSolde(player.getSolde()-10);
-            gui.setSolde(player.getSolde());
-            player.setCrewNumber(player.getCrewNumber()+10);
-            gui.setCrew(player.getCrewNumber());
-            player.setStrength(player.getStrength()+5);
-            gui.setStrength(player.getStrength());
-            gui.print("Hiring new persons in da crew\n");
-        }
-        else{
-            gui.print("You don't have enough money\n");
-        }
-    }
+//    private void hire(){
+//        if((player.getSolde()-10)>0 ){
+//            player.setSolde(player.getSolde()-10);
+//            gui.setSolde(player.getSolde());
+//            player.setCrewNumber(player.getCrewNumber()+10);
+//            gui.setCrew(player.getCrewNumber());
+//            player.setStrength(player.getStrength()+5);
+//            gui.setStrength(player.getStrength());
+//            gui.print("Hiring new persons in da crew\n");
+//        }
+//        else{
+//            gui.print("You don't have enough money\n");
+//        }
+//    }
     /**
     * This function allows the player to talk with characters 
     */
@@ -610,6 +618,14 @@ public class GameEngine {
 	
 	public Scenario getScenario() {
 		return scenario;
+	}
+	
+    public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 	public void setScenario(Scenario scenario) {

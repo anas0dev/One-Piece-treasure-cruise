@@ -2,6 +2,11 @@ package src;
 
 public class TakeCommand extends Command {
 
+	public TakeCommand() {
+		// TODO Auto-generated constructor stub
+		command = "take";
+	}
+	
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub
