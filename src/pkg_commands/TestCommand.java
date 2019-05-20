@@ -1,7 +1,8 @@
 /**
- * Tests for the game with files this function will excute all command present
- * in the file line by line
+ * Implementation of the 'test' user command.
  * 
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
  */
 package src.pkg_commands;
 
@@ -18,6 +19,12 @@ public class TestCommand extends Command {
 		command = "test";
 	}
 	
+	/**
+	 * Tests for the game with files this function will excute all command present
+	 * in the file line by line
+	 * 
+	 * @param player
+	 */
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

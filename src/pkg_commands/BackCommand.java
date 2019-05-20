@@ -1,6 +1,14 @@
+/**
+ * Implementation of the 'back' user command.
+ * 
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
+ */
 package src.pkg_commands;
 
 import src.pkg_characters.*;
+
+
 public class BackCommand extends Command {
 	
 	public BackCommand() {
@@ -10,6 +18,8 @@ public class BackCommand extends Command {
 
 	/**
      * Get you back to the room just before
+     * 
+     * @param player
      */
 	@Override
 	public boolean execute(Player player) {

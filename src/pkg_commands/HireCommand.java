@@ -1,6 +1,9 @@
 /**
-* This function hire new crew to your ship 
-*/
+ * Implementation of the 'hire' user command.
+ * 
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
+ */
 package src.pkg_commands;
 
 import src.pkg_characters.*;
@@ -12,6 +15,11 @@ public class HireCommand extends Command {
 		command = "hire";
 	}
 	
+	/**
+	 * This function hire new crew to your ship 
+	 * 
+	 * @param player
+	 */
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

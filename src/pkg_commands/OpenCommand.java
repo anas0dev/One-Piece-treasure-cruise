@@ -1,6 +1,9 @@
 /**
-* This function allow the player to open a new exits for a room
-*/
+ * Implementation of the 'open' user command.
+ * 
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
+ */
 package src.pkg_commands;
 import src.pkg_characters.*;
 
@@ -11,6 +14,11 @@ public class OpenCommand extends Command {
 		command = "open";
 	}
 	
+	/**
+	 * This function allow the player to open a new exits for a room
+	 * 
+	 * @param player
+	 */
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

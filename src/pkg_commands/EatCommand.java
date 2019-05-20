@@ -1,6 +1,9 @@
 /**
-* This function allow the user to things eatable of course in his bag
-*/
+ * Implementation of the 'eat' user command.
+ * 
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
+ */
 package src.pkg_commands;
 
 import src.pkg_characters.*;
@@ -11,6 +14,11 @@ public class EatCommand extends Command {
 		command = "eat";
 	}
 	
+	/**
+	 * This function allow the user to things eatable of course in his bag
+	 * 
+	 * @param player
+	 */
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

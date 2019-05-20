@@ -1,7 +1,9 @@
 /**
-* This function allows the player to pay bills to have exits room
-* other case he lose
-*/
+ * Implementation of the 'pay' user command.
+ * 
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
+ */
 package src.pkg_commands;
 import src.pkg_characters.*;
 
@@ -12,6 +14,12 @@ public class PayCommand extends Command {
 		command = "pay";
 	}
 	
+	/**
+	 * This function allows the player to pay bills to have exits room
+	 * other case he lose
+	 * 
+	 * @param player
+	 */
 	@Override
 	public boolean execute(Player player) {
         // TODO Auto-generated method stub

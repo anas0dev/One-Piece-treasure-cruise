@@ -1,7 +1,3 @@
-package src.pkg_game;
-
-import src.pkg_utils.UserInterface;
-
 /**
 *  This class is the main class of the "World of Zuul" application. 
 *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -12,9 +8,13 @@ import src.pkg_utils.UserInterface;
 * 
 *  This main class creates the necessary implementation objects and starts the game off.
 * 
-* @author  Michael Kolling and David J. Barnes
-* @version 2.0 (Jan 2003)
+* @author  Université Paris8 Groupe5
+* @version 3.0 (May 2019)
 */
+package src.pkg_game;
+
+import src.pkg_utils.UserInterface;
+
 
 public class Game
 {

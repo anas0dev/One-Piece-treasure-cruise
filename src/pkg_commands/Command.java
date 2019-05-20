@@ -14,7 +14,7 @@
 *
 * If the command had only one word, then the second word is <null>.
 * 
-* @author  Universitï¿½ Paris8 Groupe5
+* @author  Université Paris8 Groupe5
 * @version 3.0 (May 2019)
 */
 
@@ -73,26 +73,50 @@ public abstract class Command
         return (secondWord != null);
     }
     
+    /**
+	 * Get the gui
+	 */
     public UserInterface getGui() {
 		return gui;
 	}
 
+    /**
+     * Set the gui
+     * 
+     * @param gui
+     */
 	public void setGui(UserInterface gui) {
 		this.gui = gui;
 	}
 	
+	/**
+	 * Get the engine
+	 */
 	public GameEngine getEngine() {
 		return engine;
 	}
 
+	/**
+     * Set the engine
+     * 
+     * @param engine
+     */
 	public void setEngine(GameEngine engine) {
 		this.engine = engine;
 	}
 	
+	/**
+	 * Get the command
+	 */
 	public String getCommand() {
 		return command;
 	}
 
+	/**
+     * Set the command
+     * 
+     * @param command
+     */
 	public void setCommand(String command) {
 		this.command = command;
 	}

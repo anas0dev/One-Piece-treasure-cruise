@@ -1,6 +1,8 @@
 /**
- * Print out some help information. Here we print some stupid, cryptic message
- * and a list of the command words.
+ * Implementation of the 'help' user command.
+ * 
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
  */
 package src.pkg_commands;
 
@@ -13,6 +15,12 @@ public class HelpCommand extends Command {
 		command = "help";
 	}
 	
+	/**
+	 * Print out some help information. Here we print some stupid, cryptic message
+	 * and a list of the command words.
+	 * 
+	 * @param player
+	 */
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

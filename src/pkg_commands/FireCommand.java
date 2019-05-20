@@ -1,8 +1,9 @@
 /**
-* this function take you to the room where you charge the beamer last time 
-*/
-
-
+ * Implementation of the 'fire' user command.
+ * 
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
+ */
 package src.pkg_commands;
 import src.pkg_characters.*;
 
@@ -13,6 +14,11 @@ public class FireCommand extends Command {
 		command = "fire";
 	}
 	
+	/**
+	* this function take you to the room where you charge the beamer last time 
+	* 
+	* @param player
+	*/
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub
