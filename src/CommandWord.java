@@ -8,7 +8,7 @@ public enum CommandWord
 {
     // A value for each command word, plus one for unrecognised
     // commands.
-    GO(new GoCommand());//, QUIT("quit"), HELP("help"), LOOK("look"), EAT("eat"), BACK("back"), TEST("test"), TAKE("take"), DROP("drop"), CHECK("check"),OPEN("open"),PAY("pay"),CHARGE("charge"),FIRE("fire"),TALK("talk"),GIVE("give"),ATTACK("attack"),HIRE("hire"),RECOVER("recover"),SAVE("save"),UNKNOWN("?");
+    GO(new GoCommand()), QUIT(new QuitCommand()), HELP(new HelpCommand()), LOOK(new LookCommand());//, EAT("eat"), BACK("back"), TEST("test"), TAKE("take"), DROP("drop"), CHECK("check"),OPEN("open"),PAY("pay"),CHARGE("charge"),FIRE("fire"),TALK("talk"),GIVE("give"),ATTACK("attack"),HIRE("hire"),RECOVER("recover"),SAVE("save"),UNKNOWN("?");
 	
 	//The commandString
     private Command command;
@@ -27,7 +27,7 @@ public enum CommandWord
     /**
     * @return The command word as a string.
     */
-//    public String toString(){
-//        return commandString;
-//    }
+    public String toString(){
+        return this.name().toLowerCase();
+    }
 }

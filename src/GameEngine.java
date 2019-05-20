@@ -19,7 +19,7 @@ import java.io.*;
 public class GameEngine {
 
     private Parser parser;
-    private Room currentRoom;
+	private Room currentRoom;
 	private UserInterface gui;
     private Stack<Room> displacement;
 	private Player player;
@@ -65,7 +65,7 @@ public class GameEngine {
         do {
             LocalTime currentTime = LocalTime.now();
             if (currentTime.getMinute() == localTime3.getMinute()) {
-                endGame();
+                new QuitCommand();
                 finish = 1;
             }
             if (currentTime.getMinute() == breakfeastTime.getMinute()) {
@@ -75,7 +75,7 @@ public class GameEngine {
             }
 
             if (player.getStrength() <= 0 || player.getLife() == 0) {
-                endGame();
+                new QuitCommand();
                 finish = 1;
             }
             if (player.checkItemInTheBag("OnePiece") != null) {
@@ -254,10 +254,10 @@ public class GameEngine {
      * Print out some help information. Here we print some stupid, cryptic message
      * and a list of the command words.
      */
-    private void printHelp() {
-        gui.println("You are lost. You are alone. You wander");
-        gui.print(parser.showCommands());
-    }
+//    private void printHelp() {
+//        gui.println("You are lost. You are alone. You wander");
+//        gui.print(parser.showCommands());
+//    }
 
     /**
      * Tests for the game with files this function will excute all command present
@@ -298,32 +298,32 @@ public class GameEngine {
     * Try to go to one direction. If there is an exit, enter the new
     * room, otherwise print an error message.
     */
-    private void goRoom(Command command){
-        if(!command.hasSecondWord()) {
-            // if there is no second word, we don't know where to go...
-            gui.println("Go where?");
-            return;
-        }
-
-        String direction = command.getSecondWord();
-
-        // Try to leave current room.
-        Room nextRoom = currentRoom.getExit(direction);
-        displacement.push(currentRoom);
-        if (nextRoom == null)
-            gui.println("There is no door!");
-        else {
-        	player.setLocation(nextRoom);
-            currentRoom = nextRoom;
-            gui.println(currentRoom.getLongDescription());
-            
-            gui.setButtonColor(currentRoom.getExitButton());
-            gui.setTitle(currentRoom.getName());
-            gui.showImage(currentRoom.getImageName());
-            if(currentRoom.getImageName() != null)
-                gui.showImage(currentRoom.getImageName());
-        }
-    }
+//    private void goRoom(Command command){
+//        if(!command.hasSecondWord()) {
+//            // if there is no second word, we don't know where to go...
+//            gui.println("Go where?");
+//            return;
+//        }
+//
+//        String direction = command.getSecondWord();
+//
+//        // Try to leave current room.
+//        Room nextRoom = currentRoom.getExit(direction);
+//        displacement.push(currentRoom);
+//        if (nextRoom == null)
+//            gui.println("There is no door!");
+//        else {
+//        	player.setLocation(nextRoom);
+//            currentRoom = nextRoom;
+//            gui.println(currentRoom.getLongDescription());
+//            
+//            gui.setButtonColor(currentRoom.getExitButton());
+//            gui.setTitle(currentRoom.getName());
+//            gui.showImage(currentRoom.getImageName());
+//            if(currentRoom.getImageName() != null)
+//                gui.showImage(currentRoom.getImageName());
+//        }
+//    }
     
     
     /**
@@ -429,13 +429,13 @@ public class GameEngine {
     /**
     * Print goodbye and enable the entry field
     */
-    private void endGame() {
-        save.clearFile();
-        currentRoom.setImageName("src/images/lose.jpg");
-        gui.showImage(currentRoom.getImageName());
-		gui.println("Youu Loose !\nThank you for playing.  Good bye !");
-        gui.enable(false);
-    }
+//    private void endGame() {
+//        save.clearFile();
+//        currentRoom.setImageName("src/images/lose.jpg");
+//        gui.showImage(currentRoom.getImageName());
+//		gui.println("Youu Loose !\nThank you for playing.  Good bye !");
+//        gui.enable(false);
+//    }
     /**
     * Print wining case and enable the entry fields 
     */
@@ -450,10 +450,10 @@ public class GameEngine {
     /**
     * Print the long description of the room
     */
-    private void look(){
-        gui.print(currentRoom.getLongDescription());
-        gui.print("\n");
-    }
+//    private void look(){
+//        gui.print(currentRoom.getLongDescription());
+//        gui.print("\n");
+//    }
     /**
     * This function print the things present in the bag
     */
@@ -501,7 +501,7 @@ public class GameEngine {
 
             }else{
                 gui.println("You don't have enough money sorry");
-                endGame();
+                new QuitCommand();
             }
         }
     }
@@ -538,7 +538,8 @@ public class GameEngine {
         }
     }
     /**
-    * This function allow the user to eat things eatable of course in his bag
+    * This function allow the user to 
+ things eatable of course in his bag
     * @param Command command enter by the user 
     */
     private void eat(Command command){
@@ -597,6 +598,14 @@ public class GameEngine {
 
 	public void setDisplacement(Stack<Room> displacement) {
 		this.displacement = displacement;
+	}
+	
+    public Parser getParser() {
+		return parser;
+	}
+
+	public void setParser(Parser parser) {
+		this.parser = parser;
 	}
 	
 	 public Room getCurrentRoom() {

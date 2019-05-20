@@ -17,7 +17,7 @@ public class UserInterface implements ActionListener {
 	private JTextArea log;
 	private JLabel image, solde, bag, life, keys, strength, crew;
 	private JButton north, northEast, northWest, east, west, southEast, southWest, south, look, help, back, none;
-	private Parser parser;
+//	private Parser parser;
 
 	private GridBagConstraints gbc;
 	private JPanel panel;
@@ -31,7 +31,7 @@ public class UserInterface implements ActionListener {
 	public UserInterface(GameEngine gameEngine) {
 		engine = gameEngine;
 		createGUI();
-		parser = new Parser();
+//		parser = new Parser();
 	}
 
 	/**
@@ -309,34 +309,34 @@ public class UserInterface implements ActionListener {
 		// there is only one possible action: text entry
 		Object source = e.getSource();
 		if (source == north)
-			engine.interpretCommand(new GoCommand("north"));
+			engine.interpretCommand(engine.getParser().getCommand("go north"));
 		
 		else if (source == northWest)
-			engine.interpretCommand(new GoCommand("northWest"));
+			engine.interpretCommand(engine.getParser().getCommand("go northWest"));
 
 		else if (source == northEast)
-			engine.interpretCommand(new GoCommand("northEast"));
+			engine.interpretCommand(engine.getParser().getCommand("go northEast"));
 
 		else if (source == west)
-			engine.interpretCommand(new GoCommand("west"));
+			engine.interpretCommand(engine.getParser().getCommand("go west"));
 
 		else if (source == east)
-			engine.interpretCommand(new GoCommand("east"));
+			engine.interpretCommand(engine.getParser().getCommand("go east"));
 
 		else if (source == southWest)
-			engine.interpretCommand(new GoCommand("southWest"));
+			engine.interpretCommand(engine.getParser().getCommand("go southWest"));
 
 		else if (source == southEast)
-			engine.interpretCommand(new GoCommand("southEast"));
+			engine.interpretCommand(engine.getParser().getCommand("go southEast"));
 
 		else if (source == south)
-			engine.interpretCommand(new GoCommand("south"));
+			engine.interpretCommand(engine.getParser().getCommand("go south"));
 
-//		else if (source == help)
-//			engine.interpretCommand(new Command(CommandWord.HELP, ""));
-//
-//		else if (source == look)
-//			engine.interpretCommand(new Command(CommandWord.LOOK, ""));
+		else if (source == help)
+			engine.interpretCommand(engine.getParser().getCommand("help"));
+
+		else if (source == look)
+			engine.interpretCommand(engine.getParser().getCommand("look"));
 //
 //		else if (source == back)
 //			engine.interpretCommand(new Command(CommandWord.BACK, ""));
@@ -439,7 +439,7 @@ public class UserInterface implements ActionListener {
 		String line = entryField.getText();
 		entryField.setText("");
 		println(line);
-		engine.interpretCommand(parser.getCommand(line));
+		engine.interpretCommand(engine.getParser().getCommand(line));
 	}
 
 }

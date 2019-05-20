@@ -21,7 +21,8 @@ package src;
 public abstract class Command
 {
 //    private CommandWord commandWord;
-    private String      secondWord;
+	protected String command;
+    private String secondWord;
     protected UserInterface gui;
     protected GameEngine engine;
     
@@ -99,6 +100,14 @@ public abstract class Command
 
 	public void setEngine(GameEngine engine) {
 		this.engine = engine;
+	}
+	
+	public String getCommand() {
+		return command;
+	}
+
+	public void setCommand(String command) {
+		this.command = command;
 	}
     
     /**
