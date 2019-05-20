@@ -3,7 +3,7 @@
 * adventure game.
 * This ItemList class hold Item in a HashMap and it's used by both Player and Room
 * To take and drop Thing during the game
-* @author  Universit� Paris8 Groupe5
+* @author  Université Paris8 Groupe5
 * @version 3.0 (May 2019)
 */
 package src.pkg_items;
