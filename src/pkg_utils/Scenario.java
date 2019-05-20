@@ -1,4 +1,3 @@
-
 /**
 * This class contains characters in the game which allow the player to talk 
 * with characters. In case the player give an item to a characters if it's 
