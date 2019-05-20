@@ -172,8 +172,6 @@ public class Player {
 		if(checkWeight(name,item)){
 			name.setWeight(name.getWeight()-item.getWeight());
 			bag.addItem(item.getName(),item);
-		}else {
-			System.out.println("You can't It's too heavy");
 		}
 	}
 	/**
@@ -202,8 +200,6 @@ public class Player {
 	public Item checkItemInTheBag(String name) {
     	return bag.checkItemInList(name);
   	}
-	
-	
 	
 	/**
 	 * This method return the bag weight of the player with Description
