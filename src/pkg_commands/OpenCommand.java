@@ -1,3 +1,6 @@
+/**
+* This function allow the player to open a new exits for a room
+*/
 package src.pkg_commands;
 import src.pkg_characters.*;
 

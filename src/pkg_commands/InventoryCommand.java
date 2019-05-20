@@ -1,3 +1,6 @@
+/**
+* This function print the things present in the bag
+*/
 package src.pkg_commands;
 
 import src.pkg_characters.*;

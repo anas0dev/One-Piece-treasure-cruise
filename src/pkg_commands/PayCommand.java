@@ -1,3 +1,7 @@
+/**
+* This function allows the player to pay bills to have exits room
+* other case he lose
+*/
 package src.pkg_commands;
 import src.pkg_characters.*;
 

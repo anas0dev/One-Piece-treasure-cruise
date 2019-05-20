@@ -1,3 +1,9 @@
+/**
+ * Implementation of the 'attack' user command.
+ * 
+ * @author  Université Paris8 Groupe5 
+ * @version 3.0 (May 2019)
+ */
 package src.pkg_commands;
 import src.pkg_characters.*;
 
@@ -8,6 +14,12 @@ public class AttackCommand extends Command {
 		command = "attack";
 	}
 	
+	/**
+     * this function attack enemies if you kill enemies you can pick up stuff to eat
+     * or other
+     * 
+     * @param player
+     */
 	@Override
 	public boolean execute(Player player) {
 		// TODO Auto-generated method stub

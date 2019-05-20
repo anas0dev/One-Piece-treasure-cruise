@@ -1,3 +1,8 @@
+/**
+ * Tests for the game with files this function will excute all command present
+ * in the file line by line
+ * 
+ */
 package src.pkg_commands;
 
 import java.io.BufferedReader;

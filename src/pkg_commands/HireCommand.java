@@ -1,3 +1,6 @@
+/**
+* This function hire new crew to your ship 
+*/
 package src.pkg_commands;
 
 import src.pkg_characters.*;

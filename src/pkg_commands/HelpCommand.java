@@ -1,3 +1,7 @@
+/**
+ * Print out some help information. Here we print some stupid, cryptic message
+ * and a list of the command words.
+ */
 package src.pkg_commands;
 
 import src.pkg_characters.*;

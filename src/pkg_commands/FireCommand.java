@@ -1,3 +1,8 @@
+/**
+* this function take you to the room where you charge the beamer last time 
+*/
+
+
 package src.pkg_commands;
 import src.pkg_characters.*;
 

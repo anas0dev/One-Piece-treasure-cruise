@@ -1,7 +1,4 @@
-package src.pkg_commands;
-import src.pkg_game.*;
-import src.pkg_utils.*;
-import src.pkg_characters.*;
+
 /**
 * This class is the main class of the "World of Zuul" application. 
 * "World of Zuul" is a very simple, text based adventure game.  
@@ -21,9 +18,13 @@ import src.pkg_characters.*;
 * @version 3.0 (May 2019)
 */
 
+package src.pkg_commands;
+import src.pkg_game.*;
+import src.pkg_utils.*;
+import src.pkg_characters.*;
+
 public abstract class Command
 {
-//    private CommandWord commandWord;
 	protected String command;
     private String secondWord;
     protected UserInterface gui;
@@ -41,18 +42,9 @@ public abstract class Command
     
     public Command(String secondWord)
     {
-//        this.commandWord = firstWord;
         this.secondWord = secondWord;
     }
 
-    /**
-     * Return the command word (the first word) of this command. If the
-     * command was not understood, the result is null.
-     */
-//    public CommandWord getCommandWord()
-//    {
-//        return commandWord;
-//    }
 
     /**
      * Return the second word of this command. Returns null if there was no
@@ -72,14 +64,6 @@ public abstract class Command
     {
         this.secondWord = secondWord;
     }
-
-    /**
-     * Return true if this command was not understood.
-     */
-//    public boolean isUnknown()
-//    {
-//        return (commandWord == CommandWord.UNKNOWN);
-//    }
 
     /**
      * Return true if the command has a second word.
